@@ -1,23 +1,20 @@
+
 import streamlit as st
 from google import genai
 from PIL import Image
 
-# إعدادات الصفحة الأساسية
+# إعدادات الصفحة الأساسية للأداء السريع
 st.set_page_config(
-    page_title="PC TechAssist - AI Pro",
-    page_icon="🤖",
+    page_title="PC TechAssist - Ultra Pro",
+    page_icon="⚡",
     layout="wide"
 )
 
-# تخصيص الألوان والواجهة المرئية (Dark/Pro Theme)
+# تصميم عصري وسريع جداً (UI/UX)
 st.markdown("""
     <style>
-    .main {
-        background-color: #0e1117;
-    }
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
-    }
+    .main { background-color: #0e1117; }
+    .stTabs [data-baseweb="tab-list"] { gap: 10px; }
     .stTabs [data-baseweb="tab"] {
         background-color: #161b22;
         border-radius: 8px;
@@ -37,134 +34,130 @@ st.markdown("""
         text-align: center;
         margin-bottom: 20px;
     }
+    .quick-fix-box {
+        background-color: #1f242c;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 5px solid #238636;
+        margin-bottom: 10px;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# شريط تنبيه أعلى الصفحة
-st.warning("⚠️ **ملاحظة:** هذه النسخة التجريبية المدعومة بالرؤية الحاسوبية والذكاء الاصطناعي تحت التطوير المستمر ضمن مشاريع صيانة العتاد.")
-
-# الشريط الجانبي (Sidebar)
+# الشريط الجانبي السريع
 with st.sidebar:
-    st.header("⚙️ لوحة التحكم الذكية")
-    st.info("مساعد ذكي متقدم لتشخيص أعطال العتاد وتحليل الصور بالذكاء الاصطناعي.")
+    st.header("⚡ لوحة التحكم السريعة")
+    st.info("أداة التشخيص الهندسي الفائق لطلاب صيانة الحاسوب.")
     st.markdown("---")
     st.write("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.write("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 4.0 (Vision AI Pro)")
+    st.caption("الإصدار: 5.0 (Ultra Speed Pro)")
 
-# تقسيم الواجهة إلى تبويبات رئيسية
-tab1, tab2, tab3, tab4 = st.tabs(["👋 الترحيب ونظرة عامة", "🤖 التشخيص النصي بالـ AI", "📸 تحليل صور الأعطال (Vision)", "⚡ إرشادات الأمان (ESD)"])
+# التبويبات الرئيسية للسرعة والأداء
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "👋 الترحيب", 
+    "⚡ التشخيص السريع (ورشة المدرسة)", 
+    "🤖 الذكاء الاصطناعي", 
+    "📸 تحليل الصور", 
+    "⚡ الأمان ESD"
+])
 
-# --- التبويب الأول: الترحيب ومعلومات المطور ---
+# --- 1. الترحيب ---
 with tab1:
-    st.title("💻 مرحباً بك في منصة PC TechAssist الذكية")
-    st.subheader("المساعد الأول المدعوم بالذكاء الاصطناعي والرؤية الحاسوبية لصيانة الحواسيب")
+    st.title("⚡ منصة PC TechAssist Ultra")
+    st.subheader("المساعد الهندسي الفائق لصيانة وتفريغ أعطال العتاد فورياً")
     
-    # بطاقة تعريفية بارزة للمطور في واجهة الترحيب
     st.markdown("""
     <div class="developer-card">
-        <h3>🚀 مشروع التطوير البرمجي بواسطة المطور</h3>
+        <h3>🚀 مشروع الصيانة والتطوير بواسطة المطور</h3>
         <h2 style="color: #58a6ff;">Montazer Thamer Yousif</h2>
         <p><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.write("""
-    صُممت هذه الأداة خصيصاً لمساعدة طلاب ومهندسي صيانة الحاسوب على تحليل الأخطاء بدقة فائقة وعرض حلول هندسية فورية عبر النص أو الصور.
-    """)
-    
-    col_a, col_b = st.columns(2)
-    with col_a:
-        st.success("""
-        🚀 **ميزات الإصدار الحديث:**
-        * واجهات مستخدم مطورة وعصرية (Dark UI).
-        * تحليل ذكي مدعوم بالصور الفورية للقطع.
-        * قوائم فحص هندسية خطوة بخطوة.
-        """)
-    with col_b:
-        st.info("""
-        🎯 **الرؤية والأهداف:**
-        * تقليل أعطال القطع أثناء الصيانة اليدوية.
-        * توفير إرشادات بصرية للمبتدئين.
-        * تعزيز معايير السلامة المهنية.
-        """)
+    st.success("🎯 **الأداة مصممة لتفتح بسرعة البرق وتخدمك في الفحص العملي داخل الورشة المدرسية!**")
 
-# --- التبويب الثاني: التشخيص النصي بالذكاء الاصطناعي ---
+# --- 2. التشخيص السريع للورشة (بدون انتظار وبنقرة زر) ---
 with tab2:
-    st.header("🤖 محرك التشخيص النصي الفوري")
-    st.write("اختر العطل وطبيعة المشكلة ليقوم الذكاء الاصطناعي بتوليد الحلول:")
+    st.header("⚡ بنك التشخيص الفوري لأعطال الورشة المدرسية")
+    st.write("اضغط على أي مشكلة شائعة تواجهك في الحواسيب لتحصل على الحل الهندسي الفوري بضغطة زر:")
 
-    col1, col2 = st.columns(2)
-    with col1:
-        issue_type = st.selectbox("اختر طبيعة العطل الرئيسي:", [
-            "مشكلة إقلاع الجهاز وأصوات الصفارة (POST/Boot)",
-            "ارتفاع حرارة المعالج أو النظام (Overheating)",
-            "انقطاع أو عدم استقرار الطاقة (Power/PSU)",
-            "شاشة سوداء وعدم ظهور بيانات (No Display)"
-        ], key="issue_text")
+    quick_issue = st.selectbox(
+        "اختر العطل السريع الملاحظ في الورشة:",
+        [
+            "اختر عطلاً للإظهار الفوري...",
+            "الحاسوب يعمل وتدور المراوح لكن لا يوجد عرض على الشاشة (No Display)",
+            "الحاسوب يصدر أصوات صفارة متقطعة عند الإقلاع (POST Beeps)",
+            "الحاسوب ينطفئ لوحده بعد دقائق من التشغيل (Overheating/Thermal)",
+            "لا يوجد طاقة نهائياً ولا تضيء ليدات اللوحة الأم (Dead PSU/Power)"
+        ]
+    )
 
-    with col2:
-        component_type = st.selectbox("حدد القطعة المستهدفة:", [
-            "الذاكرة العشوائية (RAM)",
-            "المعالج (CPU) ومشتت الحرارة",
-            "مزود الطاقة (Power Supply - PSU)",
-            "كارت الشاشة (GPU)",
-            "اللوحة الأم (Motherboard)"
-        ], key="comp_text")
-
-    user_details = st.text_area("📝 صف الأعراض الملاحظة بالتفصيل:", placeholder="مثلاً: الحاسوب يعمل وتدور المراوح لكن الشاشة لا تعرض شيئاً...")
-
-    if st.button("✨ توليد تقرير التشخيص الذكي", key="btn_text"):
-        if not user_details.strip():
-            st.warning("⚠️ يرجى كتابة تفاصيل الأعراض لكي يتمكن الذكاء الاصطناعي من تحليلها!")
+    if quick_issue != "اختر عطلاً للإظهار الفوري...":
+        st.markdown("---")
+        st.markdown("### 🛠️ الحل الهندسي السريع والمباشر:")
+        
+        if "No Display" in quick_issue:
+            st.markdown("""
+            <div class="quick-fix-box">
+            <b>1. فحص الذاكرة (RAM):</b> أخرج شرائح الرام ونظف الأطراف الذهبية بممحاة ناعمة وجرب شريحة واحدة.<br>
+            <b>2. كارت الشاشة الخارجي:</b> تأكد من إحكام توصيل كابل الشاشة أو أخرجه وجرب الشاشة على كارت البورد الداخلي (On-board).<br>
+            <b>3. تفريغ الشحنات:</b> افصل طاقة البورد واỏنزع بطارية الـ CMOS لمدة دقيقة لإعادة ضبط الـ BIOS.
+            </div>
+            """, unsafe_allow_html=True)
+        elif "POST Beeps" in quick_issue:
+            st.markdown("""
+            <div class="quick-fix-box">
+            <b>• صفارات متقطعة قصيرة متتالية:</b> مشكلة في الذاكرة العشوائية (RAM) أو عدم تركيزها بالشكل السليم في الشقوق.<br>
+            <b>• صفارة طويلة تليها قصيرة:</b> خطأ في اللوحة الأم (Motherboard) or Chipset.<br>
+            <b>• صفارة طويلة مستمرة:</b> مشكلة في مزود الطاقة (Power Supply) أو الفولتية الداخلة.
+            </div>
+            """, unsafe_allow_html=True)
+        elif "Overheating" in quick_issue:
+            st.markdown("""
+            <div class="quick-fix-box">
+            <b>1. مروحة المعالج:</b> تأكد من دوران مروحة الـ CPU وإحكام توصيل سلك الـ (CPU_FAN).<br>
+            <b>2. المعجون الحراري:</b> نظف المعجون القديم تماماً وضع طبقة جديدة طازجة فوق سطح المعالج.<br>
+            <b>3. التثبيت:</b> تأكد من ربط قواعد المشتت الحراري بنمط متقاطع (X-Pattern) لضمان التلامس التام.
+            </div>
+            """, unsafe_allow_html=True)
         else:
-            with st.spinner("🔄 جاري تحليل العطل عبر النماذج الذكية..."):
-                try:
-                    client = genai.Client()
-                    prompt = f"أنت خبير صيانة حواسيب محترف. لدينا مشكلة: العطل ({issue_type}) في القطعة ({component_type})، والتفاصيل: ({user_details}). أعطني تقريراً هندسياً مرتباً باللغة العربية يتضمن السبب المحتمل وخطوات الحل."
-                    response = client.models.generate_content(model='gemini-2.5-flash', contents=prompt)
-                    st.success("✅ تم تحليل المشكلة بنجاح!")
-                    st.markdown("### 📋 تقرير الصيانة الذكي:")
-                    st.write(response.text)
-                    st.balloons()
-                except Exception as e:
-                    st.error("حدث خطأ في الاتصال بمحرك الذكاء الاصطناعي. تأكد من المفتاح أو جرب لاحقاً.")
+            st.markdown("""
+            <div class="quick-fix-box">
+            <b>1. كابلات الباور:</b> تأكد من توصيل كابل الـ 24-pin الرئيسي وكابل الـ 4/8-pin الخاص بالمعالج جيداً.<br>
+            <b>2. مفتاح التشغيل:</b> افحص توصيلات أسلاك لوحة المفتاح الأمامية (Front Panel - Power SW).<br>
+            <b>3. الفيوز والكيبل:</b> جرب كابل طاقة آخر أو تأكد من سلامة فيوز مزود الطاقة (PSU).
+            </div>
+            """, unsafe_allow_html=True)
 
-# --- التبويب الثالث: تحليل الصور والتشخيص البصري (Vision AI) ---
+# --- 3. التشخيص النصي بالذكاء الاصطناعي ---
 with tab3:
-    st.header("📸 تحليل صور الأعطال والقطع بالذكاء الاصطناعي")
-    st.write("ارفع صورة واضحة للوحة الأم (Motherboard)، المكثفات التالفة، أو مكان المشكلة، وسيقوم الذكاء الاصطناعي بفحصها وإعطائك تقريراً فورياً!")
+    st.header("🤖 محرك التشخيص الذكي المتقدم")
+    user_details = st.text_area("اكتب أعراض المشكلة بدقة لكي يحللها الذكاء الاصطناعي:", placeholder="مثلاً: بورد أسوس لا يقرأ الهارد ديسك...")
+    if st.button("✨ توليد التحليل الذكي"):
+        if user_details:
+            with st.spinner("جاري التحليل..."):
+                client = genai.Client()
+                res = client.models.generate_content(model='gemini-2.5-flash', contents=f"أنت خبير صيانة حواسيب. حلل المشكلة التالية باختصار وأعطني خطوات إصلاح: {user_details}")
+                st.write(res.text)
 
-    uploaded_file = st.file_uploader("📂 اختر صورة العطل (PNG, JPG, JPEG):", type=["png", "jpg", "jpeg"])
-    image_prompt = st.text_input("💬 سؤال أو وصف إضافي للصورة (اختياري):", placeholder="مثلاً: هل توجد مشكلة في مكثفات هذه اللوحة الأم أو آثار احتراق؟")
-
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file)
-        st.image(image, caption="الصورة المرفوعة للفحص", use_container_width=True)
-
-        if st.button("🔍 ابدأ الفحص البصري بالذكاء الاصطناعي"):
-            with st.spinner("🧠 جاري قراءة وتحليل تفاصيل الصورة هندسياً..."):
-                try:
-                    client = genai.Client()
-                    response = client.models.generate_content(
-                        model='gemini-2.5-flash',
-                        contents=[image, image_prompt if image_prompt else "قم بفحص هذه الصورة الخاصة بعتاد الحاسوب، وحدد أي تلف ظاهر أو مشكلة فنية ووضح كيفية إصلاحها."]
-                    )
-                    st.success("✅ تم الفحص البصري بنجاح!")
-                    st.markdown("### 🔬 تقرير الفحص البصري للقطع:")
-                    st.write(response.text)
-                    st.balloons()
-                except Exception as e:
-                    st.error(f"حدث خطأ أثناء معالجة الصورة: {e}")
-
-# --- التبويب الرابع: إرشادات الأمان ESD ---
+# --- 4. تحليل الصور ---
 with tab4:
-    st.header("⚡ إرشادات السلامة والتفريغ الكهروستاتيكي (ESD)")
-    st.warning("⚠️ **تنبيه هام جداً:** الشحنات الساتيكية في جسم الإنسان قادرة على إتلاف الدوائر الدقيقة فوراً!")
-    st.markdown("""
-    1. **التفريغ الأرضي:** المس جسماً معدنياً غير مفصول لتفريغ الشحنات الساكنة.
-    2. **فصل الطاقة الكلية:** افصل كابل الطاقة من الحائط تماماً قبل فتح أجزاء اللوحة.
-    3. **استخدام أدوات معزولة:** احرص على استخدام مفكات معزولة والعمل على أسطح غير موصلة.
-    """)
-                    
+    st.header("📸 الفحص البصري للقطع بالذكاء الاصطناعي")
+    img_file = st.file_uploader("اختر صورة القطعة أو اللوحة التالفة:", type=["png", "jpg", "jpeg"])
+    if img_file:
+        img = Image.open(img_file)
+        st.image(img, use_container_width=True)
+        if st.button("🔍 فحص الصورة الآن"):
+            with st.spinner("جاري قراءة الصورة..."):
+                client = genai.Client()
+                res = client.models.generate_content(model='gemini-2.5-flash', contents=[img, "افحص صورة عتاد الحاسوب هذه وحدد التلف وكيفية إصلاحه."])
+                st.write(res.text)
+
+# --- 5. أمان ESD ---
+with tab5:
+    st.header("⚡ إرشادات السلامة (ESD)")
+    st.warning("تفريغ الشحنات الساكنة أساسي قبل صيانة أي بورد أو معالج في الورشة!")
+    st.markdown("1. المس هيكل معدني لتفريغ الشحنات.\n2. افصل الكهرباء تماماً.\n3. استخدم مفكات معزولة.")
+    
