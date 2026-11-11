@@ -2,76 +2,126 @@ import streamlit as st
 
 # إعدادات الصفحة الأساسية للأداء السريع
 st.set_page_config(
-    page_title="PC TechAssist - Pro",
-    page_icon="💻",
+    page_title="PC TechAssist - Cyber Pro",
+    page_icon="⚡",
     layout="wide"
 )
 
-# تخصيص الألوان والتصميم العصري السريع
+# تصميم وتغيير جذري للواجهة والألوان (Modern Cyber UI)
 st.markdown("""
     <style>
-    .main { background-color: #0e1117; }
-    .stTabs [data-baseweb="tab-list"] { gap: 10px; }
+    /* خلفية التطبيق العامة */
+    .stApp {
+        background: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+        color: #f3f4f6;
+    }
+    
+    /* تنسيق التبويبات الفخمة */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 12px;
+        background-color: rgba(17, 24, 39, 0.7);
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(55, 65, 81, 0.5);
+    }
     .stTabs [data-baseweb="tab"] {
-        background-color: #161b22;
+        background-color: #1f2937;
         border-radius: 8px;
-        padding: 10px 20px;
-        color: #c9d1d9;
-        font-weight: bold;
+        padding: 12px 24px;
+        color: #9ca3af;
+        font-weight: 700;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+    }
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #374151;
+        color: #ffffff;
     }
     .stTabs [aria-selected="true"] {
-        background-color: #238636 !important;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
         color: #ffffff !important;
+        border: 1px solid #60a5fa !important;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
     }
-    .developer-card {
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        padding: 20px;
-        border-radius: 10px;
+
+    /* بطاقة المطور بتصميم سايبر فخم */
+    .cyber-card {
+        background: linear-gradient(145deg, #161e2e 0%, #0f172a 100%);
+        border: 1px solid #3b82f6;
+        padding: 25px;
+        border-radius: 16px;
         text-align: center;
-        margin-bottom: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        margin-bottom: 25px;
+    }
+
+    /* تحسين الأزرار والقوائم المنسدلة */
+    .stButton>button {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px 24px;
+        border: none;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        transition: all 0.3s ease;
+    }
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+    }
+
+    /* الشريط الجانبي */
+    [data-testid="stSidebar"] {
+        background-color: #0d1322;
+        border-right: 1px solid #1f2937;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# شريط التنبيه بأن النسخة تجريبية وقابلة للتطوير
-st.warning("⚠️ **تنبيه:** هذه النسخة تجريبية وقابلة للتطوير المستمر ضمن مشاريع صيانة العتاد التعليمية.")
+# شريط التنبيه التجريبي بتصميم أنيق
+st.markdown("""
+    <div style="background-color: rgba(245, 158, 11, 0.15); border-left: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
+        ⚠️ تنبيه: هذه النسخة تجريبية وقابلة للتطوير المستمر ضمن مشاريع صيانة العتاد التعليمية.
+    </div>
+""", unsafe_allow_html=True)
 
 # الشريط الجانبي
 with st.sidebar:
-    st.header("⚙️ لوحة التحكم")
-    st.info("مساعد صيانة عتاد الحواسيب السريع.")
+    st.markdown("### ⚙️ لوحة التحكم")
+    st.info("المساعد الهندسي المتقدم لعتاد الحواسيب.")
     st.markdown("---")
-    st.write("👨‍💻 **المطور:** Montazer Thamer Yousif")
-    st.write("🏫 **التخصص:** تجميع وصيانة الحاسوب")
+    st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
+    st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 2.2 (Options Pro)")
+    st.caption("الإصدار: 3.0 (Cyber Modern)")
 
-# التبويبات الرئيسية
+# التبويبات الرئيسية بالواجهة الجديدة
 tab1, tab2, tab3 = st.tabs([
-    "👋 الترحيب", 
-    "🔍 التشخيص اليدوي بالخيارات", 
-    "⚡ إرشادات الأمان (ESD)"
+    "🚀 الواجهة الرئيسية", 
+    "🛠️ نظام التشخيص الذكي للقطع", 
+    "⚡ بروتوكولات الأمان (ESD)"
 ])
 
-# --- التبويب الأول: الترحيب ---
+# --- التبويب الأول: الواجهة الرئيسية ---
 with tab1:
-    st.title("💻 مرحباً بك في منصة PC TechAssist")
-    st.subheader("المساعد الاحترافي لتشخيص وصيانة عتاد الحواسيب")
+    st.title("⚡ منصة PC TechAssist Cyber")
+    st.subheader("النظام الهندسي المطور لتشخيص وصيانة عتاد الحواسيب")
     
     st.markdown("""
-    <div class="developer-card">
-        <h3>🚀 تطوير البرمجة بواسطة المطور</h3>
-        <h2 style="color: #58a6ff;">Montazer Thamer Yousif</h2>
-        <p><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
+    <div class="cyber-card">
+        <h3 style="color: #93c5fd; margin-bottom: 10px;">🚀 تطوير وهندسة البرمجيات بواسطة</h3>
+        <h1 style="color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.5); margin: 10px 0;">Montazer Thamer Yousif</h1>
+        <p style="color: #9ca3af; font-size: 1.1em;"><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.write("أداة سريعة وخفيفة لتنظيم خطوات فحص وأعطال قطع الحاسوب بدقة وسهولة تامة عبر القوائم المختارة.")
+    st.success("✨ تم تصميم هذه الواجهة كلياً بستايل عصري وخطوط تدرج لونية متطورة لتمنحك أداءً صاروخياً وتجربة استخدام استثنائية!")
 
-# --- التبويب الثاني: التشخيص السريع بالخيارات ---
+# --- التبويب الثاني: التشخيص بالخيارات ---
 with tab2:
-    st.header("🔍 منصة التشخيص السريع عبر الخيارات")
+    st.header("🛠️ محطة التشخيص الهندسي المباشر")
+    st.write("حدد القطعة المستهدفة والعطل الملاحظ لاستخراج خطوات الصيانة الفورية:")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -96,36 +146,35 @@ with tab2:
             ]
         )
 
-    if st.button("🚀 عرض خطوات الإصلاح المباشرة"):
-        st.success("✅ تم جلب خطوات الصيانة الفورية بنجاح:")
-        st.markdown(f"### 📋 إجراءات فحص قطعتك (`{component}` - العطل: `{symptom}`):")
+    if st.button("🚀 تنفيذ التشخيص الهندسي الفوري"):
+        st.markdown(f"""
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; padding: 20px; border-radius: 12px; margin-top: 15px;">
+            <h3 style="color: #34d399; margin-top: 0;">✅ نتائج الفحص الميداني لـ ({component}):</h3>
+            """, unsafe_allow_html=True)
         
         if "RAM" in component:
-            st.write("1. افصل الطاقة عن الجهاز تماماً وقم بإخراج شرائح الذاكرة.")
-            st.write("2. نظف الأطراف الذهبية بعناية فائقة باستخدام ممحاة نظيفة.")
-            st.write("3. أعد تركيب الشريحة في شقوق (Slots) بديلة وتأكد من سماع صوت الإحكام.")
+            st.markdown("1. **إخراج شرائح الذاكرة:** افصل الطاقة تماماً وأخرج الرمات من أماكنها بحذر.<br>2. **تنظيف التلامسات:** نظف الأطراف الذهبية بممحاة ناعمة لإزالة طبقة الأكسدة.<br>3. **إعادة التثبيت:** جرب تركيبها في شقوق (Slots) بديلة وتأكد من إحكام القفل.")
         elif "CPU" in component:
-            st.write("1. تحقق من توصيل كابل مروحة المعالج (CPU_FAN) بشكل صحيح.")
-            st.write("2. افحص حالة المعجون الحراري واستبدله في حال جفافه.")
-            st.write("3. تأكد من ثبات مشتت الحرارة على المعالج باتزان تام.")
+            st.markdown("1. **مروحة المعالج:** تأكد من إحكام توصيل سلك الـ (CPU_FAN) ومن دوران المروحة.<br>2. **المعجون الحراري:** افحص حالة المعجون واستبدله في حال جفافه التام.<br>3. **التثبيت:** تحقق من توازن مشتت الحرارة على سطح المعالج.")
         elif "Power" in component:
-            st.write("1. افحص كابل الطاقة الرئيسي وتأكد من سلامة مقبس الكهرباء.")
-            st.write("2. تأكد من توصيل موصلات البورد (24-pin و 8-pin) بإحكام.")
-            st.write("3. تفقد سلامة الفيوز والمكثفات الداخلية لمزود الطاقة.")
+            st.markdown("1. **الكابلات الرئيسية:** افحص كابل الطاقة وتأكد من تثبيت موصل الـ 24-pin والـ 8-pin بإحكام.<br>2. **الأسلاك الأمامية:** تأكد من سلامة توصيلات الـ Front Panel (زر الباور).<br>3. **المصدر الكهربائي:** تأكد من سلامة الفيوز ومزود الطاقة.")
         else:
-            st.write("1. أعد ضبط الـ BIOS عن طريق إزالة بطارية CMOS لدقائق معدودة.")
-            st.write("2. تأكد من سلامة توصيل الأسلاك الأمامية (Front Panel).")
-            st.write("3. افحص خلو اللوحة الأم من أي التماسات كهربائية أو أتربة متراكمة.")
+            st.markdown("1. **إعادة ضبط الـ BIOS:** أزل بطارية الـ CMOS لدقائق معدودة ثم أعد تركيبها.<br>2. **الالتماسات:** افحص خلو البورد من أي أتربة أو تلامسات معدنية خاطئة.<br>3. **المكونات:** تأكد من سلامة المكثفات والدوائر الظاهرة.")
         
+        st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
 # --- التبويب الثالث: الأمان ESD ---
 with tab3:
-    st.header("⚡ إرشادات السلامة والتفريغ الكهروستاتيكي (ESD)")
-    st.warning("⚠️ تنبيه: الشحنات الساكنة قد تدمر اللوحات والقطع الدقيقة فور لمسها!")
+    st.header("⚡ بروتوكولات الأمان والتفريغ الكهروستاتيكي (ESD)")
     st.markdown("""
-    1. **التفريغ الأرضي:** المس جسماً معدنياً غير مفصول لتفريغ الشحنات الساكنة من جسمك.
-    2. **فصل الطاقة:** انزع كابل الكهرباء الرئيسي من الحائط قبل التعامل مع اللوحة الأم.
-    3. **الأدوات:** استخدم مفكات معزولة وتجنب العمل على أسطح قماشية تولد كهرباء استاتيكية.
-    """)
-        
+    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 20px; border-radius: 12px; color: #fca5a5;">
+    <h3>⚠️ تحذير هندي هامة لحماية العتاد:</h3>
+    <ol>
+        <li><b>التفريغ الأرضي:</b> المس جسماً معدنياً غير مفصول لتفريغ الشحنات الساكنة من جسمك قبل لمس البورد.</li>
+        <li><b>فصل الطاقة:</b> انزع كابل الكهرباء الرئيسي تماماً من الحائط قبل إجراء أي صيانة داخلية.</li>
+        <li><b>الأدوات المعزولة:</b> استخدم دائماً مفكات وأدوات معزولة وتجنب العمل على أسطح قماشية تولد شحنات.</li>
+    </ol>
+    </div>
+    """, unsafe_allow_html=True)
+    
