@@ -1,14 +1,13 @@
 import streamlit as st
-from google import genai
 
-# إعدادات الصفحة الأساسية
+# إعدادات الصفحة الأساسية للأداء السريع
 st.set_page_config(
-    page_title="PC TechAssist - AI Pro",
-    page_icon="🤖",
+    page_title="PC TechAssist - Pro",
+    page_icon="💻",
     layout="wide"
 )
 
-# تصميم الألوان والعِبارات
+# تخصيص الألوان والتصميم العصري السريع
 st.markdown("""
     <style>
     .main { background-color: #0e1117; }
@@ -36,33 +35,29 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # شريط التنبيه بأن النسخة تجريبية وقابلة للتطوير
-st.warning("⚠️ **تنبيه:** هذه النسخة تجريبية ومدعومة بمحرك الذكاء الاصطناعي وقابلة للتطوير المستمر ضمن مشاريع الصيانة التعليمية.")
+st.warning("⚠️ **تنبيه:** هذه النسخة تجريبية وقابلة للتطوير المستمر ضمن مشاريع صيانة العتاد التعليمية.")
 
-# الشريط الجانبي لإدخال المفتاح بسلامة وبدون أخطاء
+# الشريط الجانبي
 with st.sidebar:
-    st.header("⚙️ لوحة التحكم الذكية")
-    st.info("مساعد ذكي متقدم لتشخيص أعطال عتاد الحواسيب.")
-    
-    # حقل آمن لإدخال المفتاح إذا لم يكن مخزناً في سحابة ستريمليت
-    api_key_input = st.text_input("🔑 مفتاح Google Gemini API:", type="password", placeholder="أدخل مفتاحك هنا...")
-    
+    st.header("⚙️ لوحة التحكم")
+    st.info("مساعد صيانة عتاد الحواسيب السريع.")
     st.markdown("---")
     st.write("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.write("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 3.1 (AI Pro)")
+    st.caption("الإصدار: 2.1 (Custom Input Pro)")
 
 # التبويبات الرئيسية
 tab1, tab2, tab3 = st.tabs([
     "👋 الترحيب", 
-    "🤖 مساعد الذكاء الاصطناعي (حوار مباشر)", 
+    "🔍 تشخيص الأعطال (إدخال يدوي)", 
     "⚡ إرشادات الأمان (ESD)"
 ])
 
 # --- التبويب الأول: الترحيب ---
 with tab1:
-    st.title("💻 مرحباً بك في منصة PC TechAssist الذكية")
-    st.subheader("المساعد الأول المدعوم بالذكاء الاصطناعي لتشخيص وصيانة الحواسيب")
+    st.title("💻 مرحباً بك في منصة PC TechAssist")
+    st.subheader("المساعد الاحترافي لتشخيص وصيانة عتاد الحواسيب")
     
     st.markdown("""
     <div class="developer-card">
@@ -72,55 +67,45 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
     
-    st.write("أداة ذكية متكاملة مصممة خصيصاً لتتحدث معك وتحاورك كخبير صيانة محترف لمساعدتك في حل وتشخيص مشاكل الهاردوير بدقة فائقة.")
+    st.write("أداة سريعة وخفيفة تتيح لك كتابة ووصف أي عطل يواجهك في الحاسوب لتحديد خطوات فحصه وإصلاحه بدقة وسهولة.")
 
-# --- التبويب الثاني: محادثة الذكاء الاصطناعي الحية ---
+# --- التبويب الثاني: تشخيص الأعطال (إدخال يدوي حر) ---
 with tab2:
-    st.header("🤖 المحاور الذكي لصيانة الحواسيب")
-    st.write("اسألني عن أي عطل، مشكلة في الإقلاع، حرارة معالج، أو قطع هاردوير، وسأجيبك فوراً بخطوات دقيقة:")
+    st.header("🔍 محطة التشخيص اليدوي الحر للأعطال")
+    st.write("اكتب اسم القطعة أو المشكلة التي تواجهك في الحقل أدناه (مثلاً: مشاكل الرام، ارتفاع حرارة المعالج، الباور لا يعمل، الشاشة لا تعرض):")
+    
+    # حقل نصي حر ليحدد المستخدم العطل بنفسه
+    user_problem = st.text_input("✍️ اكتب وصف العطل أو اسم القطعة هنا:", placeholder="مثلاً: الحاسوب يفصل بعد 5 دقائق أو مشكلة في كارت الشاشة...")
 
-    if "messages" not in st.session_state:
-        st.session_state.messages = [
-            {"role": "assistant", "content": "أهلاً بك يا بطل! أنا مساعدك الذكي لصيانة الحواسيب. تفضل، ما هي المشكلة أو العطل الذي تواجهه في الجهاز لكي أساعدك في حله؟"}
-        ]
-
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-
-    if prompt := st.chat_input("اكتب سؤالك أو صف المشكلة هنا..."):
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.markdown(prompt)
-
-        with st.chat_message("assistant"):
-            with st.spinner("جاري التفكير وصياغة الحل الهندسي..."):
-                try:
-                    # استخدام المفتاح المدخل من الشريط الجانبي أو من إعدادات البيئة
-                    import os
-                    key_to_use = api_key_input if api_key_input else os.getenv("GEMINI_API_KEY")
-                    
-                    if not key_to_use:
-                        reply_text = "⚠️ تنبيه: يرجى إدخال مفتاح الـ API (`GEMINI_API_KEY`) في الشريط الجانبي (Sidebar) من القائمة الجانبية لكي يتمكن الذكاء الاصطناعي من الرد عليك!"
-                    else:
-                        client = genai.Client(api_key=key_to_use)
-                        full_prompt = f"""
-                        أنت خبير صيانة حواسيب محترف ومساعد ذكي ودود وداعم (تتحدث باللهجة العربية الواضحة والمبسطة وتساعد الطلاب والفنيين).
-                        سؤال المستخدم أو المشكلة هي: {prompt}
-                        أعطه إجابة دقيقة، احترافية، ومرتبة بخطوات واضحة لحل المشكلة.
-                        """
-                        response = client.models.generate_content(
-                            model='gemini-2.5-flash',
-                            contents=full_prompt
-                        )
-                        reply_text = response.text
-                        
-                    st.markdown(reply_text)
-                    st.session_state.messages.append({"role": "assistant", "content": reply_text})
-                except Exception as e:
-                    error_msg = f"عذراً، حدث خطأ: {e}"
-                    st.error(error_msg)
-                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
+    if st.button("🚀 إعطاء خطوات الحل والإصلاح"):
+        if not user_problem.strip():
+            st.warning("⚠️ يرجى كتابة المشكلة أو اسم القطعة أولاً في الحقل أعلاه!")
+        else:
+            st.success("✅ تم استلام العطل بنجاح، إليك الإرشادات الهندسية:")
+            st.markdown(f"### 📋 خطوات الفحص والإصلاح لـ: (`{user_problem}`)")
+            
+            # تحليل الكلمة المفتاحية المدخلة وعرض إرشادات عملية دقيقة
+            problem_lower = user_problem.lower()
+            
+            if "رام" in problem_lower or "ram" in problem_lower or "ذاكرة" in problem_lower:
+                st.write("1. **إخراج الشرائح:** افصل الكهرباء تماماً عن الجهاز واخرج شرائح الذاكرة (RAM) بحذر.")
+                st.write("2. **التنظيف:** نظف الأطراف الذهبية للشريحة باستخدام ممحاة نظيفة لإزالة أي أكسدة أو أتربة.")
+                st.write("3. **تغيير الشق:** جرب تركيب الشريحة في شق (Slot) آخر على اللوحة الأم وتأكد من سماع صوت قفل الحواف.")
+            elif "معالج" in problem_lower or "cpu" in problem_lower or "حرارة" in problem_lower:
+                st.write("1. **مروحة التبريد:** تأكد من إحكام توصيل سلك مروحة المعالج (CPU_FAN) ومن دورانها بشكل طبيعي.")
+                st.write("2. **المعجون الحراري:** افحص طبقة المعجون فوق المعالج واستبدلها إذا كانت جافة لتفادي الإطفاء التلقائي.")
+                st.write("3. **التثبيت:** تحقق من ثبات قواعد المشتت الحراري بشكل متوازن على سطح المعالج.")
+            elif "باور" in problem_lower | "طاقة" in problem_lower or "psu" in problem_lower or "كهرباء" in problem_lower:
+                st.write("1. **الأسلاك الرئيسية:** تأكد من توصيل موصل البورد الرئيسي (24-pin) وموصل المعالج (4/8-pin) بإحكام تام.")
+                st.write("2. **مفتاح التشغيل:** افحص توصيلات أسلاك اللوحة الأم الأمامية (Front Panel - Power SW).")
+                st.write("3. **مصدر التيار:** تأكد من سلامة كابل الطاقة ومقبس الحائط الكهربائي ومفتاح مزود الطاقة الخلفي.")
+            else:
+                st.write(f"• **فحص عام للمشكلة ({user_problem}):**")
+                st.write("1. تأكد من إيقاف تشغيل الجهاز وفصل الطاقة قبل فحص أي مكون داخلي.")
+                st.write("2. أعد ضبط إعدادات الـ BIOS عن طريق إزالة بطارية الـ CMOS لدقائق معدودة.")
+                st.write("3. افحص خلو اللوحة الأم من التماسات الكهرباء، الأتربة المتراكمة، أو أي تلف ظاهر في المكثفات.")
+            
+            st.balloons()
 
 # --- التبويب الثالث: الأمان ESD ---
 with tab3:
@@ -131,4 +116,4 @@ with tab3:
     2. **فصل الطاقة:** انزع كابل الكهرباء الرئيسي من الحائط قبل التعامل مع اللوحة الأم.
     3. **الأدوات:** استخدم مفكات معزولة وتجنب العمل على أسطح قماشية تولد كهرباء استاتيكية.
     """)
-    
+            
