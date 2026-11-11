@@ -1,10 +1,11 @@
 import streamlit as st
+from google import genai
 from PIL import Image
 
 # إعدادات الصفحة الأساسية للأداء السريع
 st.set_page_config(
-    page_title="PC TechAssist - Pro",
-    page_icon="💻",
+    page_title="PC TechAssist - AI Pro",
+    page_icon="🤖",
     layout="wide"
 )
 
@@ -35,27 +36,30 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# شريط التنبيه بأن النسخة تجريبية وقابلة للتطوير
+st.warning("⚠️ **تنبيه:** هذه النسخة تجريبية ومدعومة بمحرك الذكاء الاصطناعي وقابلة للتطوير المستمر ضمن مشاريع الصيانة التعليمية.")
+
 # الشريط الجانبي
 with st.sidebar:
-    st.header("⚙️ لوحة التحكم")
-    st.info("مساعد صيانة عتاد الحواسيب السريع.")
+    st.header("⚙️ لوحة التحكم الذكية")
+    st.info("مساعد ذكي متقدم لتشخيص أعطال عتاد الحواسيب.")
     st.markdown("---")
     st.write("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.write("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 2.0 (Clean & Fast)")
+    st.caption("الإصدار: 3.0 (AI Interactive Pro)")
 
-# التبويبات الرئيسية
+# التبويبات الرئيسية (شملت الترحيب والمحادثة الذكية والأمان)
 tab1, tab2, tab3 = st.tabs([
     "👋 الترحيب", 
-    "🔍 التشخيص اليدوي السريع", 
+    "🤖 مساعد الذكاء الاصطناعي (حوار مباشر)", 
     "⚡ إرشادات الأمان (ESD)"
 ])
 
 # --- التبويب الأول: الترحيب ---
 with tab1:
-    st.title("💻 مرحباً بك في منصة PC TechAssist")
-    st.subheader("المساعد الاحترافي لتشخيص وصيانة عتاد الحواسيب")
+    st.title("💻 مرحباً بك في منصة PC TechAssist الذكية")
+    st.subheader("المساعد الأول المدعوم بالذكاء الاصطناعي لتشخيص وصيانة الحواسيب")
     
     st.markdown("""
     <div class="developer-card">
@@ -65,57 +69,55 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
     
-    st.write("أداة سريعة وخفيفة لتنظيم خطوات فحص وأعطال قطع الحاسوب بدقة وسهولة تامة.")
+    st.write("أداة ذكية متكاملة مصممة خصيصاً لتتحدث معك وتحاورك كخبير صيانة محترف لمساعدتك في حل وتشخيص مشاكل الهاردوير بدقة فائقة.")
 
-# --- التبويب الثاني: التشخيص اليدوي السريع ---
+# --- التبويب الثاني: محادثة الذكاء الاصطناعي الحية ---
 with tab2:
-    st.header("🔍 منصة التشخيص السريع للقطع")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        component = st.selectbox(
-            "اختر القطعة المستهدفة بالفحص:",
-            [
-                "الذاكرة العشوائية (RAM)",
-                "المعالج (CPU) ومشتت الحرارة",
-                "مزود الطاقة (Power Supply - PSU)",
-                "كارت الشاشة (GPU)",
-                "اللوحة الأم (Motherboard)"
-            ]
-        )
-    with col2:
-        symptom = st.selectbox(
-            "طبيعة المشكلة الملاحظة:",
-            [
-                "عدم إقلاع الجهاز أو صفارات متقطعة",
-                "انقطاع تام للطاقة وعدم اشتغال المراوح",
-                "ارتفاع حرارة مفاجئ واطفاء تلقائي",
-                "شاشة سوداء وعدم ظهور بيانات"
-            ]
-        )
+    st.header("🤖 المحاور الذكي لصيانة الحواسيب")
+    st.write("اسألني عن أي عطل، مشكلة في الإقلاع، حرارة معالج، أو قطع هاردوير، وسأجيبك فوراً بخطوات دقيقة:")
 
-    if st.button("🚀 عرض خطوات الإصلاح المباشرة"):
-        st.success("✅ تم جلب خطوات الصيانة الفورية بنجاح:")
-        st.markdown(f"### 📋 إجراءات فحص قطعتك (`{component}`):")
-        
-        if "RAM" in component:
-            st.write("1. افصل الطاقة عن الجهاز تماماً وقم بإخراج شرائح الذاكرة.")
-            st.write("2. نظف الأطراف الذهبية بعناية فائقة باستخدام ممحاة نظيفة.")
-            st.write("3. أعد تركيب الشريحة في شقوق (Slots) بديلة وتأكد من سماع صوت الإحكام.")
-        elif "CPU" in component:
-            st.write("1. تحقق من توصيل كابل مروحة المعالج (CPU_FAN) بشكل صحيح.")
-            st.write("2. افحص حالة المعجون الحراري واستبدله في حال جفافه.")
-            st.write("3. تأكد من ثبات مشتت الحرارة على المعالج باتزان تام.")
-        elif "Power" in component:
-            st.write("1. افحص كابل الطاقة الرئيسي وتأكد من سلامة مقبس الكهرباء.")
-            st.write("2. تأكد من توصيل موصلات البورد (24-pin و 8-pin) بإحكام.")
-            st.write("3. تفقد سلامة الفيوز والمكثفات الداخلية لمزود الطاقة.")
-        else:
-            st.write("1. أعد ضبط الـ BIOS عن طريق إزالة بطارية CMOS لدقائق معدودة.")
-            st.write("2. تأكد من سلامة توصيل الأسلاك الأمامية (Front Panel).")
-            st.write("3. افحص خلو اللوحة الأم من أي التماسات كهربائية أو أتربة متراكمة.")
-        
-        st.balloons()
+    # استخدام الـ Session State لحفظ المحادثة بين المستخدم والذكاء الاصطناعي
+    if "messages" not in st.session_state:
+        st.session_state.messages = [
+            {"role": "assistant", "content": "أهلاً بك يا بطل! أنا مساعدك الذكي لصيانة الحواسيب. تفضل، ما هي المشكلة أو العطل الذي تواجهه في الجهاز لكي أساعدك في حله؟"}
+        ]
+
+    # عرض رسائل السجل السابقة
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+        # استخدام st.markdown بدلاً من st.write للسلامة وعرض النصوص بشكل صحيح
+            st.markdown(message["content"])
+
+    # استقبال مدخلات المستخدم الجديدة في حقل الدردشة السفلي
+    if prompt := st.chat_input("اكتب سؤالك أو صف المشكلة هنا..."):
+        # إضافة رسالة المستخدم للسجل
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        # توليد رد الذكاء الاصطناعي الحقيقي
+        with st.chat_message("assistant"):
+            with st.spinner("جاري التفكير وصياغة الحل الهندسي..."):
+                try:
+                    client = genai.Client()
+                    # دمج سجل المحادثة أو إرسال السياق للنموذج ليكون حوارياً ومتصلاً
+                    full_prompt = f"""
+                    أنت خبير صيانة حواسيب محترف ومساعد ذكي ودود وداعم (تتحدث باللهجة العربية الواضحة والمبسطة وتساعد الطلاب والفنيين).
+                    سؤال المستخدم أو المشكلة هي: {prompt}
+                    أعطه إجابة دقيقة، احترافية، ومرتبة بخطوات واضحة لحل المشكلة.
+                    """
+                    response = client.models.generate_content(
+                        model='gemini-2.5-flash',
+                        contents=full_prompt
+                    )
+                    reply_text = response.text
+                    st.markdown(reply_text)
+                    # حفظ رد المساعد في السجل
+                    st.session_state.messages.append({"role": "assistant", "content": reply_text})
+                except Exception as e:
+                    error_msg = "عذراً، حدث خطأ في الاتصال بمحرك الذكاء الاصطناعي. تأكد من إعداد المفتاح أو جرب لاحقاً."
+                    st.error(error_msg)
+                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
 
 # --- التبويب الثالث: الأمان ESD ---
 with tab3:
