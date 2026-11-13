@@ -3,12 +3,12 @@ import streamlit.components.v1 as components
 
 # إعدادات الصفحة الأساسية للأداء السريع
 st.set_page_config(
-    page_title="PC TechAssist - Cyber Pro",
+    page_title="PC TechAssist - Pro Platform",
     page_icon="⚡",
     layout="wide"
 )
 
-# تصميم وتغيير جذري للواجهة والألوان (Modern Cyber UI)
+# تصميم الواجهة والتنسيقات (Modern Cyber UI)
 st.markdown("""
     <style>
     .stApp {
@@ -16,8 +16,8 @@ st.markdown("""
         color: #f3f4f6;
     }
     .stTabs [data-baseweb="tab-list"] {
-        gap: 12px;
-        background-color: rgba(17, 24, 39, 0.7);
+        gap: 8px;
+        background-color: rgba(17, 24, 39, 0.8);
         padding: 10px;
         border-radius: 12px;
         border: 1px solid rgba(55, 65, 81, 0.5);
@@ -25,9 +25,10 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] {
         background-color: #1f2937;
         border-radius: 8px;
-        padding: 12px 24px;
+        padding: 10px 16px;
         color: #9ca3af;
         font-weight: 700;
+        font-size: 14px;
         border: 1px solid transparent;
         transition: all 0.3s ease;
     }
@@ -71,34 +72,37 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# شريط التنبيه التجريبي بتصميم أنيق
+# شريط التنبيه الاحترافي
 st.markdown("""
-    <div style="background-color: rgba(245, 158, 11, 0.15); border-left: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
-        ⚠️ تنبيه: هذه النسخة تجريبية وقابلة للتطوير المستمر ضمن مشاريع صيانة العتاد التعليمية.
+    <div style="background-color: rgba(59, 130, 246, 0.15); border-left: 5px solid #3b82f6; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #93c5fd; font-weight: bold;">
+        🚀 المنصة الهندسية المتكاملة لصيانة وتشخيص عتاد الحواسيب (الإصدار الاحترافي للهاكاثون).
     </div>
 """, unsafe_allow_html=True)
 
 # الشريط الجانبي
 with st.sidebar:
     st.markdown("### ⚙️ لوحة التحكم")
-    st.info("المساعد الهندسي المتقدم لعتاد الحواسيب.")
+    st.info("المنصة الشاملة لصيانة الحواسيب.")
     st.markdown("---")
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
+    st.markdown("📚 **المؤسسة:** إعدادية المثنى المهنية المسائية")
     st.markdown("---")
-    st.caption("الإصدار: 4.3 (Real Mail Secure)")
+    st.caption("الإصدار: 7.0 (Ultimate Pro Platform)")
 
-# التعريف الصحيح للتبويبات الأربعة
-tab1, tab2, tab3, tab4 = st.tabs([
-    "🚀 الواجهة الرئيسية", 
-    "🛠️ نظام التشخيص الذكي", 
-    "💡 المقترحات والإبلاغ",
-    "⚡ بروتوكولات الأمان (ESD)"
+# التبويبات المتكاملة للمنصة الجديدة
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    "🚀 الرئيسية", 
+    "🛠️ التشخيص الفوري", 
+    "🔔 دليل صفارات البايوس", 
+    "🔌 فحص التوافقية (PC Builder)", 
+    "💡 المقترحات",
+    "⚡ أمان ESD"
 ])
 
-# --- التبويب الأول: الواجهة الرئيسية ---
+# --- 1. التبويب الأول: الواجهة الرئيسية ---
 with tab1:
-    st.title("⚡ منصة PC TechAssist Cyber")
+    st.title("⚡ منصة PC TechAssist Pro")
     st.subheader("النظام الهندسي المطور لتشخيص وصيانة عتاد الحواسيب")
     
     st.markdown("""
@@ -109,11 +113,17 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✨ المنصة جاهزة بالكامل ومحسنة لأداء عالي جداً للمشاركة في الهاكاثون!")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.info("🛠️ **تشخيص متقدم**\n\nفحص دقيق لمشاكل الهاردوير والقطع.")
+    with col2:
+        st.success("🔔 **رموز البايوس**\n\nتحليل صفارات اللوحة الأم واكتشاف الأعطال.")
+    with col3:
+        st.warning("🔌 **توافقية القطع**\n\nدليل بناء التجميعات واختيار الباور سبلاي.")
 
-# --- التبويب الثاني: التشخيص الموسع ---
+# --- 2. التبويب الثاني: التشخيص الفوري المعتاد ---
 with tab2:
-    st.header("🛠️ محطة التشخيص الهندسي المباشر (الموسعة)")
+    st.header("🛠️ محطة التشخيص الهندسي المباشر")
     st.write("حدد القطعة المستهدفة والعطل الدقيق لاستخراج خطوات الصيانة الفورية:")
     
     col1, col2 = st.columns(2)
@@ -166,8 +176,71 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- تبويب الثالث: الإرسال الفعلي الحقيقي ---
+# --- 3. التبويب الثالث: دليل صفارات البايوس (ميزة جديدة مضافة) ---
 with tab3:
+    st.header("🔔 دليل صفارات اللوحة الأم (BIOS Beep Codes)")
+    st.write("تعرف على دلالة الأصوات الصادرة من سماعة اللوحة الأم عند التشغيل لاكتشاف العطل فوراً:")
+    
+    beep_choice = st.selectbox(
+        "اختر نمط الصفارات المسموع:",
+        [
+            "صفارة واحدة قصيرة (1 Short Beep)",
+            "صفارتان قصيرتان (2 Short Beeps)",
+            "صفارة طويلة تليها قصيرة (1 Long, 1 Short)",
+            "صفارة طويلة تليها صفارتان قصيرتان (1 Long, 2 Short)",
+            "صفارات متقطعة ومستمرة (Continuous Beeps)"
+        ]
+    )
+    
+    if st.button("🔍 تحليل نمط الصفارات"):
+        st.markdown("<div style='background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; padding: 20px; border-radius: 12px; margin-top: 15px;'>", unsafe_allow_html=True)
+        if "1 Short" in beep_choice:
+            st.success("🟢 **الحالة سليمة:** النظام يعمل بشكل طبيعي ولا توجد أي مشاكل في العتاد الأساسي (POST Successful).")
+        elif "2 Short" in beep_choice:
+            st.error("🔴 **خطأ في إعدادات الـ CMOS:** فشل اختبار الذاكرة الأساسي، أعد ضبط إعدادات البيوس أو افحص الرمات.")
+        elif "1 Long, 1 Short" in beep_choice:
+            st.error("🔴 **مشكلة في اللوحة الأم أو الـ PSU:** حدث خطأ عام في اللوحة الرئيسية أو في تزويد الطاقة.")
+        elif "1 Long, 2 Short" in beep_choice:
+            st.error("🔴 **خطأ في كارت الشاشة (GPU):** اللوحة الأم لا تستطيع التعرف على كارت الشاشة أو الذاكرة الرسومية.")
+        else:
+            st.error("🔴 **مشكلة حرجة في الطاقة أو الرمات:** إما أن مزود الطاقة معطل أو أن شرائح الذاكرة غير مثبتة نهائياً.")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+# --- 4. التبويب الرابع: فحص التوافقية وبناء التجميعات (ميزة جديدة مضافة) ---
+with tab4:
+    st.header("🔌 دليل فحص توافقية القطع وحساب الطاقة (PC Builder)")
+    st.write("احسب استهلاك الطاقة التقريبي لتجهيزك وتأكد من توافق المقابس:")
+    
+    col_a, col_b = st.columns(2)
+    with col_a:
+        cpu_type = st.selectbox("نوع المعالج (CPU):", ["Intel Core i3 / i5 (فئة اقتصادية)", "Intel Core i7 / i9 (فئة عليا)", "AMD Ryzen 3 / 5", "AMD Ryzen 7 / 9"])
+        gpu_type = st.selectbox("كارت الشاشة (GPU):", ["بدون كارت خارجي (معالج رسومي مدمج)", "فئة اقتصادية (GTX 1650 / RTX 3050)", "فئة متوسطة (RTX 4060 / RX 7600)", "فئة عليا (RTX 4080 / 4090)"])
+    with col_b:
+        ram_sticks = st.selectbox("عدد شرائح الرمات (RAM):", ["شريحة واحدة (8GB / 16GB)", "شريحتان Dual Channel (16GB / 32GB)"])
+        storage_count = st.selectbox("عدد أقراص التخزين:", ["قرص واحد (SSD M.2)", "قرصان (SSD + HDD)"])
+
+    if st.button("⚡ حساب القدرة المطلوبة للـ PSU"):
+        # حساب تقديري بسيط للواط
+        base_power = 150
+        if "i7" in cpu_type or "Ryzen 7" in cpu_type or "i9" in cpu_type or "9" in cpu_type:
+            base_power += 80
+        if "اقتصادية" in gpu_type:
+            base_power += 150
+        elif "متوسطة" in gpu_type:
+            base_power += 220
+        elif "عليا" in gpu_type:
+            base_power += 450
+            
+        st.markdown(f"""
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; padding: 20px; border-radius: 12px; margin-top: 15px;">
+            <h3 style="color: #34d399; margin-top: 0;">💡 نتيجة الحساب الهندسي للتجميعة:</h3>
+            <p><b>القدرة الدنيا المطلوبة لمزود الطاقة (PSU):</b> <span style="color: #fbbf24; font-size: 1.2em;">{base_power + 100} Watt</span> (مع أخذ مساحة أمان 20% للحمل الزائد).</p>
+            <p><b>التوصية:</b> ينصح بشراء مزود طاقة بشهادة <b>80 Plus Bronze</b> أو أعلى لضمان استقرار الفولتية وحماية القطع.</p>
+            </div>
+        """, unsafe_allow_html=True)
+
+# --- 5. التبويب الخامس: الإرسال الفعلي الحقيقي ---
+with tab5:
     st.header("💡 الإبلاغ عن مشكلة أو إرسال مقترح تطويري")
     st.write("اكتب مقترحك أو العطل الجديد، وسيتم إرساله مباشرة إلى فريق التطوير:")
 
@@ -223,7 +296,7 @@ with tab3:
     </head>
     <body>
         <form action="https://formsubmit.co/ailailv2005@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="رسالة جديدة من تطبيق PC TechAssist!">
+            <input type="hidden" name="_subject" value="رسالة جديدة من منصة PC TechAssist Pro!">
             <input type="hidden" name="_captcha" value="false">
             
             <div class="form-group">
@@ -247,8 +320,8 @@ with tab3:
     </html>
     """, height=340)
 
-# --- تبويب الرابع: الأمان ESD ---
-with tab4:
+# --- 6. التبويب السادس: الأمان ESD ---
+with tab6:
     st.header("⚡ بروتوكولات الأمان والتفريغ الكهروستاتيكي (ESD)")
     st.markdown("""
     <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 20px; border-radius: 12px; color: #fca5a5;">
