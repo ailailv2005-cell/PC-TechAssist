@@ -8,72 +8,73 @@ st.set_page_config(
     layout="wide"
 )
 
-# تصميم وتغيير جذري للواجهة والألوان (Modern Cyber UI)
+# تصميم وتغيير الألوان (بنفسجي، أزرق فاتح، وذهبي فاخر)
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+        background: linear-gradient(135deg, #0d061f 0%, #1a103c 100%);
         color: #f3f4f6;
     }
     .stTabs [data-baseweb="tab-list"] {
         gap: 12px;
-        background-color: rgba(17, 24, 39, 0.7);
+        background-color: rgba(26, 16, 60, 0.8);
         padding: 10px;
         border-radius: 12px;
-        border: 1px solid rgba(55, 65, 81, 0.5);
+        border: 1px solid rgba(139, 92, 246, 0.3);
     }
     .stTabs [data-baseweb="tab"] {
-        background-color: #1f2937;
+        background-color: #1f1438;
         border-radius: 8px;
         padding: 12px 24px;
-        color: #9ca3af;
+        color: #c084fc;
         font-weight: 700;
         border: 1px solid transparent;
         transition: all 0.3s ease;
     }
     .stTabs [data-baseweb="tab"]:hover {
-        background-color: #374151;
+        background-color: #2e1d54;
         color: #ffffff;
     }
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
-        color: #ffffff !important;
-        border: 1px solid #60a5fa !important;
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%) !important;
+        color: #fbbf24 !important;
+        border: 1px solid #fbbf24 !important;
+        box-shadow: 0 4px 15px rgba(251, 191, 11, 0.3);
     }
     .cyber-card {
-        background: linear-gradient(145deg, #161e2e 0%, #0f172a 100%);
-        border: 1px solid #3b82f6;
+        background: linear-gradient(145deg, #1b1236 0%, #110a24 100%);
+        border: 1px solid #fbbf24;
         padding: 25px;
         border-radius: 16px;
         text-align: center;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 24px rgba(251, 191, 11, 0.15);
         margin-bottom: 25px;
     }
     .stButton>button {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: white;
-        font-weight: bold;
+        background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+        color: #0d061f;
+        font-weight: 900;
         border-radius: 10px;
         padding: 10px 24px;
         border: none;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        box-shadow: 0 4px 15px rgba(251, 191, 11, 0.4);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+        box-shadow: 0 6px 20px rgba(251, 191, 11, 0.6);
+        background: linear-gradient(135deg, #fcd34d 0%, #b45309 100%);
     }
     [data-testid="stSidebar"] {
-        background-color: #0d1322;
-        border-right: 1px solid #1f2937;
+        background-color: #0b0517;
+        border-right: 1px solid #2e1d54;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# شريط التنبيه التجريبي بتصميم أنيق
+# شريط التنبيه الذهبي
 st.markdown("""
-    <div style="background-color: rgba(245, 158, 11, 0.15); border-left: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
+    <div style="background-color: rgba(251, 191, 11, 0.1); border-left: 5px solid #fbbf24; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fde68a; font-weight: bold;">
         ⚠️ تنبيه: هذه النسخة تجريبية وقابلة للتطوير المستمر ضمن مشاريع صيانة العتاد التعليمية.
     </div>
 """, unsafe_allow_html=True)
@@ -86,7 +87,7 @@ with st.sidebar:
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 4.3 (Real Mail Secure)")
+    st.caption("الإصدار: 5.0 (Royal Cyber Gold)")
 
 # التعريف الصحيح للتبويبات الأربعة
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -103,13 +104,13 @@ with tab1:
     
     st.markdown("""
     <div class="cyber-card">
-        <h3 style="color: #93c5fd; margin-bottom: 10px;">🚀 تطوير وهندسة البرمجيات بواسطة</h3>
-        <h1 style="color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.5); margin: 10px 0;">Montazer Thamer Yousif</h1>
-        <p style="color: #9ca3af; font-size: 1.1em;"><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
+        <h3 style="color: #60a5fa; margin-bottom: 10px;">🚀 تطوير وهندسة البرمجيات بواسطة</h3>
+        <h1 style="color: #fbbf24; text-shadow: 0 0 15px rgba(251, 191, 11, 0.4); margin: 10px 0;">Montazer Thamer Yousif</h1>
+        <p style="color: #c084fc; font-size: 1.1em;"><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✨ المنصة جاهزة بالكامل ومحسنة لأداء عالي جداً للمشاركة في الهاكاثون!")
+    st.success("✨ المنصة جاهزة بالكامل بألوانها الملكية الجديدة ومزودة بنظام تواصل فعال!")
 
 # --- التبويب الثاني: التشخيص الموسع ---
 with tab2:
@@ -146,8 +147,8 @@ with tab2:
 
     if st.button("🚀 تنفيذ التشخيص الهندسي الفوري"):
         st.markdown(f"""
-            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; padding: 20px; border-radius: 12px; margin-top: 15px;">
-            <h3 style="color: #34d399; margin-top: 0;">✅ نتائج الفحص الميداني لـ ({component} - العطل: {symptom}):</h3>
+            <div style="background: rgba(124, 58, 237, 0.15); border: 1px solid #fbbf24; padding: 20px; border-radius: 12px; margin-top: 15px;">
+            <h3 style="color: #fbbf24; margin-top: 0;">✅ نتائج الفحص الميداني لـ ({component} - العطل: {symptom}):</h3>
             """, unsafe_allow_html=True)
         
         if "RAM" in component:
@@ -166,12 +167,11 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- تبويب الثالث: الإرسال الفعلي الحقيقي (بريدك مخفي تماماً وتصلك الرسائل بدقة) ---
+# --- تبويب الثالث: الإرسال الفعلي الحقيقي ---
 with tab3:
     st.header("💡 الإبلاغ عن مشكلة أو إرسال مقترح تطويري")
     st.write("اكتب مقترحك أو العطل الجديد، وسيتم إرساله مباشرة إلى فريق التطوير:")
 
-    # استخدام مكونات HTML الآمنة والمعزولة لضمان إرسال الإيميل الحقيقي وعدم ظهور أكواد على الشاشة
     components.html("""
     <!DOCTYPE html>
     <html lang="ar" dir="rtl">
@@ -192,30 +192,34 @@ with tab3:
                 display: block;
                 margin-bottom: 5px;
                 font-weight: bold;
-                color: #f3f4f6;
+                color: #fbbf24;
                 font-size: 14px;
             }
             input, textarea {
                 width: 100%;
                 padding: 10px;
                 border-radius: 8px;
-                border: 1px solid #374151;
-                background: #1f2937;
+                border: 1px solid #7c3aed;
+                background: #1b1236;
                 color: white;
                 box-sizing: border-box;
                 font-size: 14px;
             }
+            input:focus, textarea:focus {
+                border-color: #fbbf24;
+                outline: none;
+            }
             button {
-                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-                color: white;
-                font-weight: bold;
+                background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+                color: #0d061f;
+                font-weight: 900;
                 padding: 12px 24px;
                 border: none;
                 border-radius: 10px;
                 cursor: pointer;
                 width: 100%;
                 font-size: 15px;
-                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+                box-shadow: 0 4px 15px rgba(251, 191, 11, 0.4);
             }
             button:hover {
                 opacity: 0.95;
