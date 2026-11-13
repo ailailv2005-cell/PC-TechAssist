@@ -8,74 +8,74 @@ st.set_page_config(
     layout="wide"
 )
 
-# تصميم وتغيير الألوان (بنفسجي، أزرق فاتح، وذهبي فاخر)
+# تصميم ذوقي الخاص: أسود فحمي احترافي مع أخضر تيرمينال ورمادي معدني
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #0d061f 0%, #1a103c 100%);
-        color: #f3f4f6;
+        background: linear-gradient(135deg, #090d16 0%, #0e1726 100%);
+        color: #e5e7eb;
     }
     .stTabs [data-baseweb="tab-list"] {
-        gap: 12px;
-        background-color: rgba(26, 16, 60, 0.8);
+        gap: 10px;
+        background-color: rgba(15, 23, 42, 0.9);
         padding: 10px;
         border-radius: 12px;
-        border: 1px solid rgba(139, 92, 246, 0.3);
+        border: 1px solid rgba(16, 185, 129, 0.2);
     }
     .stTabs [data-baseweb="tab"] {
-        background-color: #1f1438;
+        background-color: #1e293b;
         border-radius: 8px;
         padding: 12px 24px;
-        color: #c084fc;
+        color: #94a3b8;
         font-weight: 700;
         border: 1px solid transparent;
         transition: all 0.3s ease;
     }
     .stTabs [data-baseweb="tab"]:hover {
-        background-color: #2e1d54;
+        background-color: #334155;
         color: #ffffff;
     }
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%) !important;
-        color: #fbbf24 !important;
-        border: 1px solid #fbbf24 !important;
-        box-shadow: 0 4px 15px rgba(251, 191, 11, 0.3);
+        background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+        color: #ffffff !important;
+        border: 1px solid #34d399 !important;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
     }
     .cyber-card {
-        background: linear-gradient(145deg, #1b1236 0%, #110a24 100%);
-        border: 1px solid #fbbf24;
+        background: linear-gradient(145deg, #111827 0%, #0b0f19 100%);
+        border: 1px solid #10b981;
         padding: 25px;
         border-radius: 16px;
         text-align: center;
-        box-shadow: 0 8px 24px rgba(251, 191, 11, 0.15);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         margin-bottom: 25px;
     }
     .stButton>button {
-        background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-        color: #0d061f;
-        font-weight: 900;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: #ffffff;
+        font-weight: 800;
         border-radius: 10px;
         padding: 10px 24px;
         border: none;
-        box-shadow: 0 4px 15px rgba(251, 191, 11, 0.4);
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(251, 191, 11, 0.6);
-        background: linear-gradient(135deg, #fcd34d 0%, #b45309 100%);
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+        background: linear-gradient(135deg, #34d399 0%, #047857 100%);
     }
     [data-testid="stSidebar"] {
-        background-color: #0b0517;
-        border-right: 1px solid #2e1d54;
+        background-color: #070a12;
+        border-right: 1px solid #1e293b;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# شريط التنبيه الذهبي
+# شريط التنبيه الاحترافي
 st.markdown("""
-    <div style="background-color: rgba(251, 191, 11, 0.1); border-left: 5px solid #fbbf24; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fde68a; font-weight: bold;">
-        ⚠️ تنبيه: هذه النسخة تجريبية وقابلة للتطوير المستمر ضمن مشاريع صيانة العتاد التعليمية.
+    <div style="background-color: rgba(16, 185, 129, 0.1); border-left: 5px solid #10b981; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #34d399; font-weight: bold;">
+        ⚡ النظام جاهز: النسخة الهندسية المخصصة لتشخيص صيانة عتاد الحواسيب.
     </div>
 """, unsafe_allow_html=True)
 
@@ -87,7 +87,7 @@ with st.sidebar:
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 5.0 (Royal Cyber Gold)")
+    st.caption("الإصدار: 6.0 (Terminal Dark Pro)")
 
 # التعريف الصحيح للتبويبات الأربعة
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -104,13 +104,13 @@ with tab1:
     
     st.markdown("""
     <div class="cyber-card">
-        <h3 style="color: #60a5fa; margin-bottom: 10px;">🚀 تطوير وهندسة البرمجيات بواسطة</h3>
-        <h1 style="color: #fbbf24; text-shadow: 0 0 15px rgba(251, 191, 11, 0.4); margin: 10px 0;">Montazer Thamer Yousif</h1>
-        <p style="color: #c084fc; font-size: 1.1em;"><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
+        <h3 style="color: #94a3b8; margin-bottom: 10px;">🚀 تطوير وهندسة البرمجيات بواسطة</h3>
+        <h1 style="color: #34d399; text-shadow: 0 0 15px rgba(52, 211, 153, 0.4); margin: 10px 0;">Montazer Thamer Yousif</h1>
+        <p style="color: #93c5fd; font-size: 1.1em;"><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✨ المنصة جاهزة بالكامل بألوانها الملكية الجديدة ومزودة بنظام تواصل فعال!")
+    st.success("✨ المنصة جاهزة بالكامل بألوان التيرمينال الهندسية الأنيقة ومزودة بنظام التواصل الفعال!")
 
 # --- التبويب الثاني: التشخيص الموسع ---
 with tab2:
@@ -147,8 +147,8 @@ with tab2:
 
     if st.button("🚀 تنفيذ التشخيص الهندسي الفوري"):
         st.markdown(f"""
-            <div style="background: rgba(124, 58, 237, 0.15); border: 1px solid #fbbf24; padding: 20px; border-radius: 12px; margin-top: 15px;">
-            <h3 style="color: #fbbf24; margin-top: 0;">✅ نتائج الفحص الميداني لـ ({component} - العطل: {symptom}):</h3>
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; padding: 20px; border-radius: 12px; margin-top: 15px;">
+            <h3 style="color: #34d399; margin-top: 0;">✅ نتائج الفحص الميداني لـ ({component} - العطل: {symptom}):</h3>
             """, unsafe_allow_html=True)
         
         if "RAM" in component:
@@ -180,7 +180,7 @@ with tab3:
         <style>
             body {
                 background-color: transparent;
-                color: #f3f4f6;
+                color: #e5e7eb;
                 font-family: Tahoma, sans-serif;
                 margin: 0;
                 padding: 5px;
@@ -192,26 +192,26 @@ with tab3:
                 display: block;
                 margin-bottom: 5px;
                 font-weight: bold;
-                color: #fbbf24;
+                color: #34d399;
                 font-size: 14px;
             }
             input, textarea {
                 width: 100%;
                 padding: 10px;
                 border-radius: 8px;
-                border: 1px solid #7c3aed;
-                background: #1b1236;
+                border: 1px solid #1e293b;
+                background: #111827;
                 color: white;
                 box-sizing: border-box;
                 font-size: 14px;
             }
             input:focus, textarea:focus {
-                border-color: #fbbf24;
+                border-color: #10b981;
                 outline: none;
             }
             button {
-                background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-                color: #0d061f;
+                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                color: white;
                 font-weight: 900;
                 padding: 12px 24px;
                 border: none;
@@ -219,7 +219,7 @@ with tab3:
                 cursor: pointer;
                 width: 100%;
                 font-size: 15px;
-                box-shadow: 0 4px 15px rgba(251, 191, 11, 0.4);
+                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
             }
             button:hover {
                 opacity: 0.95;
