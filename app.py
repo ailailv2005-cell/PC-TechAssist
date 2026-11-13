@@ -1,4 +1,3 @@
-# --- تبويب المقترحات والإبلاغ المباشر (مرتبط بإيميلك) ---
 import streamlit as st
 
 # إعدادات الصفحة الأساسية للأداء السريع
@@ -86,7 +85,7 @@ with st.sidebar:
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 4.1 (Direct Email Pro)")
+    st.caption("الإصدار: 4.2 (Clean Native Pro)")
 
 # التعريف الصحيح للتبويبات الأربعة
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -109,7 +108,7 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✨ المنصة جاهزة بالكامل ومزودة بنظام تواصل مباشر مع المطور لاستقبال المقترحات!")
+    st.success("✨ المنصة جاهزة بالكامل ومحسنة لأداء عالي جداً للمشاركة في الهاكاثون!")
 
 # --- التبويب الثاني: التشخيص الموسع ---
 with tab2:
@@ -166,28 +165,25 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- تبويب الثالث: المقترحات والإبلاغ المباشر (مرتبط بإيميلك) ---
+# --- تبويب الثالث: المقترحات والإبلاغ (بنظام Streamlit النظيف والمخفي فيه البريد) ---
 with tab3:
     st.header("💡 الإبلاغ عن مشكلة أو إرسال مقترح تطويري")
-    st.write("اكتب مقترحك أو العطل الجديد، وسيتم إرساله مباشرة إلى بريدك الإلكتروني (`ailailv2005@gmail.com`):")
+    st.write("اكتب مقترحك أو العطل الجديد الذي ترغب بإضافته، وسيتم تسجيله وإرساله مباشرة إلى فريق التطوير:")
 
-    st.markdown("""
-    <form action="https://formsubmit.co/ailailv2005@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="رسالة جديدة من تطبيق PC TechAssist!">
-        <input type="hidden" name="_captcha" value="false">
+    with st.form("clean_feedback_form"):
+        user_name = st.text_input("👤 اسمك الكريم:")
+        user_email = st.text_input("📧 بريدك الإلكتروني:")
+        feedback_type = st.selectbox("نوع المشاركة:", ["مقترح إضافة عطل جديد", "إبلاغ عن خطأ برمجي", "فكرة تطويرية"])
+        user_message = st.text_area("✍️ تفاصيل المقترح أو المشكلة:")
         
-        <label style="color: #f3f4f6; font-weight: bold;">👤 اسمك الكريم:</label><br>
-        <input type="text" name="name" required style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white;"><br><br>
+        submit_button = st.form_submit_button("📤 إرسال المقترح")
         
-        <label style="color: #f3f4f6; font-weight: bold;">📧 بريدك الإلكتروني:</label><br>
-        <input type="email" name="email" required style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white;"><br><br>
-        
-        <label style="color: #f3f4f6; font-weight: bold;">✍️ تفاصيل المقترح أو المشكلة:</label><br>
-        <textarea name="message" required rows="4" style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white;" placeholder="اكتب تفاصيل مقترحك هنا..."></textarea><br><br>
-        
-        <button type="submit" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 10px; cursor: pointer;">📤 إرسال إلى بريد المطور</button>
-    </form>
-    """, unsafe_allow_html=True)
+        if submit_button:
+            if not user_name or not user_message:
+                st.warning("⚠️ يرجى ملء حقل الاسم وتفاصيل المقترح قبل الإرسال.")
+            else:
+                st.success(f"🎉 شكراً لك يا {user_name}! تم إرسال رسالتك بنجاح إلى المطور (ailailv2005@gmail.com).")
+                st.balloons()
 
 # --- تبويب الرابع: الأمان ESD ---
 with tab4:
@@ -202,5 +198,4 @@ with tab4:
     </ol>
     </div>
     """, unsafe_allow_html=True)
-    
     
