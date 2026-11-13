@@ -1,0 +1,58 @@
+import streamlit as st
+from ai_engine import create_client, ask_openai, get_api_key, render_chat_history, reset_chat
+
+st.set_page_config(
+    page_title="PC TechAssist AI Chat",
+    page_icon="🤖",
+    layout="centered"
+)
+
+st.title("🤖 مساعد الذكاء الاصطناعي - PC TechAssist")
+st.caption("نافذة محادثة ذكية متكاملة لتشخيص أعطال العتاد وتقديم الاستشارات الهندسية.")
+
+with st.sidebar:
+    st.subheader("⚙️ إعدادات الاتصال")
+    key_input = st.text_input("أدخل مفتاح OpenAI API", type="password", placeholder="sk-...")
+    api_key = get_api_key(key_input)
+    
+    model = st.selectbox("النموذج", ["gpt-4o-mini", "gpt-4o", "gpt-3.5-turbo"])
+    
+    if st.button("🗑️ مسح المحادثة", use_container_width=True):
+        reset_chat("standalone")
+        st.rerun()
+        
+    st.markdown("---")
+    st.page_link("app.py", label="العودة إلى لوحة التحكم", icon="🏠")
+
+if not api_key:
+    st.info("الرجاء إدخال مفتاح OpenAI API في الشريط الجانبي أو إضافته إلى Streamlit Secrets للبدء.")
+    st.stop()
+
+try:
+    client = create_client(api_key)
+except Exception as exc:
+    st.error(f"تعذر تهيئة الاتصال: {exc}")
+    st.stop()
+
+render_chat_history("standalone")
+
+prompt = st.chat_input("اكتب سؤالك أو مشكلة العتاد هنا...")
+if prompt:
+    history_key = "pc_techassist_standalone"
+    st.session_state.setdefault(history_key, [])
+    
+    st.session_state[history_key].append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+        
+    with st.chat_message("assistant"):
+        with st.spinner("جاري التفكير والتحليل الهندسي..."):
+            answer = ask_openai(
+                client=client,
+                model=model,
+                messages=st.session_state[history_key],
+                mode="chat"
+            )
+            st.markdown(answer)
+            
+    st.session_state[history_key].append({"role": "assistant", "content": answer})
