@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # إعدادات الصفحة الأساسية للأداء السريع
 st.set_page_config(
@@ -85,7 +86,7 @@ with st.sidebar:
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 4.2 (Clean Native Pro)")
+    st.caption("الإصدار: 4.3 (Real Mail Secure)")
 
 # التعريف الصحيح للتبويبات الأربعة
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -165,25 +166,87 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- تبويب الثالث: المقترحات والإبلاغ (بنظام Streamlit النظيف والمخفي فيه البريد) ---
+# --- تبويب الثالث: الإرسال الفعلي الحقيقي (بريدك مخفي تماماً وتصلك الرسائل بدقة) ---
 with tab3:
     st.header("💡 الإبلاغ عن مشكلة أو إرسال مقترح تطويري")
-    st.write("اكتب مقترحك أو العطل الجديد الذي ترغب بإضافته، وسيتم تسجيله وإرساله مباشرة إلى فريق التطوير:")
+    st.write("اكتب مقترحك أو العطل الجديد، وسيتم إرساله مباشرة إلى فريق التطوير:")
 
-    with st.form("clean_feedback_form"):
-        user_name = st.text_input("👤 اسمك الكريم:")
-        user_email = st.text_input("📧 بريدك الإلكتروني:")
-        feedback_type = st.selectbox("نوع المشاركة:", ["مقترح إضافة عطل جديد", "إبلاغ عن خطأ برمجي", "فكرة تطويرية"])
-        user_message = st.text_area("✍️ تفاصيل المقترح أو المشكلة:")
-        
-        submit_button = st.form_submit_button("📤 إرسال المقترح")
-        
-        if submit_button:
-            if not user_name or not user_message:
-                st.warning("⚠️ يرجى ملء حقل الاسم وتفاصيل المقترح قبل الإرسال.")
-            else:
-                st.success(f"🎉 شكراً لك يا {user_name}! تم إرسال رسالتك بنجاح إلى المطور (ailailv2005@gmail.com).")
-                st.balloons()
+    # استخدام مكونات HTML الآمنة والمعزولة لضمان إرسال الإيميل الحقيقي وعدم ظهور أكواد على الشاشة
+    components.html("""
+    <!DOCTYPE html>
+    <html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                background-color: transparent;
+                color: #f3f4f6;
+                font-family: Tahoma, sans-serif;
+                margin: 0;
+                padding: 5px;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #f3f4f6;
+                font-size: 14px;
+            }
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid #374151;
+                background: #1f2937;
+                color: white;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+            button {
+                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                color: white;
+                font-weight: bold;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                width: 100%;
+                font-size: 15px;
+                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            }
+            button:hover {
+                opacity: 0.95;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="https://formsubmit.co/ailailv2005@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="رسالة جديدة من تطبيق PC TechAssist!">
+            <input type="hidden" name="_captcha" value="false">
+            
+            <div class="form-group">
+                <label>👤 اسمك الكريم:</label>
+                <input type="text" name="name" required placeholder="اكتب اسمك هنا...">
+            </div>
+            
+            <div class="form-group">
+                <label>📧 بريدك الإلكتروني:</label>
+                <input type="email" name="email" required placeholder="example@gmail.com">
+            </div>
+            
+            <div class="form-group">
+                <label>✍️ تفاصيل المقترح أو المشكلة:</label>
+                <textarea name="message" required rows="3" placeholder="اكتب تفاصيل مقترحك أو العطل هنا..."></textarea>
+            </div>
+            
+            <button type="submit">📤 إرسال إلى المطور</button>
+        </form>
+    </body>
+    </html>
+    """, height=340)
 
 # --- تبويب الرابع: الأمان ESD ---
 with tab4:
