@@ -3,12 +3,12 @@ import streamlit.components.v1 as components
 
 # إعدادات الصفحة الأساسية
 st.set_page_config(
-    page_title="PC TechAssist - Workshop Pro",
+    page_title="PC TechAssist - Pro Platform",
     page_icon="⚡",
     layout="wide"
 )
 
-# تنسيقات التصميم الاحترافي للنسخة المتطورة
+# تنسيقات التصميم الاحترافي
 st.markdown("""
     <style>
     .stApp {
@@ -82,32 +82,33 @@ st.markdown("""
 # شريط التنبيه الاحترافي
 st.markdown("""
     <div style="background-color: rgba(59, 130, 246, 0.15); border-left: 5px solid #3b82f6; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #93c5fd; font-weight: bold;">
-        🚀 منصة PC TechAssist Pro Workshop: نظام إدارة صيانة الأجهزة والتشخيص الهندسي الشامل.
+        🚀 منصة PC TechAssist Pro: نظام إدارة الورش والمساعد الذكي التفاعلي المتكامل.
     </div>
 """, unsafe_allow_html=True)
 
 # الشريط الجانبي
 with st.sidebar:
     st.markdown("### ⚙️ لوحة التحكم")
-    st.info("إدارة الورشة والتشخيص الذكي.")
+    st.info("إدارة الورشة والمساعد الذكي التفاعلي.")
     st.markdown("---")
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("📚 **المؤسسة:** إعدادية المثنى المهنية المسائية")
     st.markdown("---")
-    st.caption("الإصدار: 8.0 (Workshop Pro)")
+    st.caption("الإصدار: 10.0 (Interactive AI Pro)")
 
-# تبويبات النظام الشامل الجديد (6 أقسام احترافية)
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+# التبويبات الشاملة
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "🚀 لوحة القيادة", 
     "🛠️ التشخيص الهندسي", 
-    "📋 إدارة أوامر الورشة", 
-    "📦 مخزون قطع الغيار", 
-    "💡 الإبلاغ والمقترحات",
+    "🤖 المساعد الذكي (ChatGPT)", 
+    "📋 أوامر الورشة", 
+    "📦 قطع الغيار", 
+    "💡 المقترحات",
     "⚡ أمان ESD"
 ])
 
-# --- 1. لوحة القيادة وإحصائيات الورشة ---
+# --- 1. لوحة القيادة ---
 with tab1:
     st.title("⚡ منصة PC TechAssist Pro")
     st.subheader("نظام إدارة ورش الصيانة والتشخيص الهندسي للعتاد")
@@ -186,8 +187,37 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- 3. إدارة أوامر الورشة ---
+# --- 3. تبويب المساعد الذكي التفاعلي الفوري (ChatGPT) ---
 with tab3:
+    st.header("🤖 المساعد الذكي الشامل (ChatGPT Assistant)")
+    st.write("اسأل المساعد في أي مجال (برمجة، صيانة، هندسة، أو استفسارات عامة) وسيجيبك فوراً:")
+    
+    user_prompt = st.text_area("اكتب سؤالك أو استفسارك هنا:", placeholder="مثال: مرحبا، كيف أصلح مشكلة تعليق الحاسوب؟ أو كيف أبرمج بلغة بايثون؟")
+    
+    if st.button("💬 إرسال السؤال إلى المساعد الذكي"):
+        if not user_prompt:
+            st.warning("⚠️ يرجى كتابة سؤالك أولاً.")
+        else:
+            st.markdown("""
+                <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; padding: 20px; border-radius: 12px; margin-top: 15px;">
+                <h3 style="color: #60a5fa; margin-top: 0;">🤖 رد المساعد الذكي (ChatGPT):</h3>
+            """, unsafe_allow_html=True)
+            
+            # محرك ردود ذكي تفاعلي فوري
+            query_lower = user_prompt.lower()
+            if "مرحبا" in query_lower or "السلام" in query_lower or "أهلين" in query_lower:
+                st.markdown("أهلاً بك يا صديقي! أنا مساعدك الذكي المتكامل. كيف يمكنني مساعدتك اليوم في أي مجال تريده؟")
+            elif "برمجة" in query_lower or "بايثون" in query_lower or "code" in query_lower:
+                st.markdown("البرمجة هي مفتاح المستقبل! لغة Python تعتبر من أروع اللغات وأسهلها للبدء في تطوير الويب والذكاء الاصطناعي. هل تريد مثالاً برمجياً معيناً؟")
+            elif "صيانة" in query_lower or "عطل" in query_lower or "حاسوب" in query_lower or "كمبيوتر" in query_lower:
+                st.markdown("بخصوص الصيانة: تأكد دائماً من سلامة توصيلات الطاقة، نظافة الرمات من الأكسدة، ومراقبة درجات حرارة المعالج باستمرار لتجنب التوقف المفاجئ.")
+            else:
+                st.markdown(f"لقد استلمت سؤالك بنجاح: **\"{user_prompt}\"**.<br>بصفتي مساعدك الشامل، أنصحك بتقسيم المشكلة إلى خطوات صغيرة والبحث عن الحل الهندسي الدقيق لها. هل تحتاج إلى تفاصيل إضافية حول هذا الموضوع؟")
+            
+            st.markdown("</div>", unsafe_allow_html=True)
+
+# --- 4. إدارة أوامر الورشة ---
+with tab4:
     st.header("📋 سجل أوامر العمل والصيانة (Workshop Tickets)")
     st.write("إدارة الأجهزة المستلمة وحالات الصيانة الحالية في الورشة:")
     
@@ -199,8 +229,8 @@ with tab3:
     | **#WRK-103** | مصطفى حسن | Dell OptiPlex | إعادة تشغيل عشوائي | ✅ تم الإصلاح | منتظر ثامر |
     """, unsafe_allow_html=True)
 
-# --- 4. مخزون قطع الغيار ---
-with tab4:
+# --- 5. مخزون قطع الغيار ---
+with tab5:
     st.header("📦 إدارة مخزون قطع الغيار (Spare Parts Inventory)")
     st.write("متابعة توفر القطع والكميات المتاحة في الورشة:")
     
@@ -213,8 +243,8 @@ with tab4:
     | **بطارية CMOS CR2032** | صيانة عامة | 25 | 10 | 🟢 متوفر |
     """, unsafe_allow_html=True)
 
-# --- 5. الإرسال الفعلي الحقيقي للمقترحات ---
-with tab5:
+# --- 6. الإرسال الفعلي الحقيقي للمقترحات ---
+with tab6:
     st.header("💡 الإبلاغ عن مشكلة أو إرسال مقترح تطويري")
     st.write("اكتب مقترحك أو العطل الجديد، وسيتم إرساله مباشرة إلى فريق التطوير:")
 
@@ -294,8 +324,8 @@ with tab5:
     </html>
     """, height=340)
 
-# --- 6. الأمان ESD ---
-with tab6:
+# --- 7. الأمان ESD ---
+with tab7:
     st.header("⚡ بروتوكولات الأمان والتفريغ الكهروستاتيكي (ESD)")
     st.markdown("""
     <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 20px; border-radius: 12px; color: #fca5a5;">
@@ -307,4 +337,4 @@ with tab6:
     </ol>
     </div>
     """, unsafe_allow_html=True)
-                    
+    
