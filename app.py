@@ -95,13 +95,13 @@ with st.sidebar:
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("📚 **المؤسسة:** إعدادية المثنى المهنية المسائية")
     st.markdown("---")
-    st.caption("الإصدار: 10.0 (Interactive AI Pro)")
+    st.caption("الإصدار: 11.0 (Clean Pro)")
 
 # التبويبات الشاملة
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "🚀 لوحة القيادة", 
     "🛠️ التشخيص الهندسي", 
-    "🤖 المساعد الذكي (ChatGPT)", 
+    "🤖 المساعد الذكي", 
     "📋 أوامر الورشة", 
     "📦 قطع الغيار", 
     "💡 المقترحات",
@@ -187,12 +187,12 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- 3. تبويب المساعد الذكي التفاعلي الفوري (ChatGPT) ---
+# --- 3. تبويب المساعد الذكي الشامل ---
 with tab3:
-    st.header("🤖 المساعد الذكي الشامل (ChatGPT Assistant)")
-    st.write("اسأل المساعد في أي مجال (برمجة، صيانة، هندسة، أو استفسارات عامة) وسيجيبك فوراً:")
+    st.header("🤖 المساعد الذكي الشامل")
+    st.write("اسأل المساعد في أي مجال (برمجة، صيانة، هندسة، شراء أجهزة، أو استفسارات عامة) وسيجيبك فوراً:")
     
-    user_prompt = st.text_area("اكتب سؤالك أو استفسارك هنا:", placeholder="مثال: مرحبا، كيف أصلح مشكلة تعليق الحاسوب؟ أو كيف أبرمج بلغة بايثون؟")
+    user_prompt = st.text_area("اكتب سؤالك أو استفسارك هنا:", placeholder="مثال: شنو تنصحني اشتري لابتوب؟ أو كيف أصلح مشكلة تعليق الحاسوب؟")
     
     if st.button("💬 إرسال السؤال إلى المساعد الذكي"):
         if not user_prompt:
@@ -200,15 +200,17 @@ with tab3:
         else:
             st.markdown("""
                 <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; padding: 20px; border-radius: 12px; margin-top: 15px;">
-                <h3 style="color: #60a5fa; margin-top: 0;">🤖 رد المساعد الذكي (ChatGPT):</h3>
+                <h3 style="color: #60a5fa; margin-top: 0;">🤖 رد المساعد الذكي:</h3>
             """, unsafe_allow_html=True)
             
-            # محرك ردود ذكي تفاعلي فوري
+            # محرك ردود ذكي محسّن ومتطور
             query_lower = user_prompt.lower()
             if "مرحبا" in query_lower or "السلام" in query_lower or "أهلين" in query_lower:
                 st.markdown("أهلاً بك يا صديقي! أنا مساعدك الذكي المتكامل. كيف يمكنني مساعدتك اليوم في أي مجال تريده؟")
+            elif "لابتوب" in query_lower or "شراء" in query_lower or "اشتري" in query_lower:
+                st.markdown("بخصوص اختيار اللابتوب المناسب:\n1. **للتصميم والبرمجة:** أنصحك بمعالج قوي (Intel Core i7 أو AMD Ryzen 7) مع ذاكرة عشوائية لا تقل عن 16GB RAM.\n2. **للاختصاص الدراسي والأعمال المكتبية:** كافي جداً معالج i5 مع ذاكرة 8GB وذاكرة تخزين SSD سريعة.")
             elif "برمجة" in query_lower or "بايثون" in query_lower or "code" in query_lower:
-                st.markdown("البرمجة هي مفتاح المستقبل! لغة Python تعتبر من أروع اللغات وأسهلها للبدء في تطوير الويب والذكاء الاصطناعي. هل تريد مثالاً برمجياً معيناً؟")
+                st.markdown("البرمجة هي مفتاح المستقبل! لغة Python تعتبر من أروع اللغات وأسهلها للبدء في تطوير الويب والذكاء الاصطناعي.")
             elif "صيانة" in query_lower or "عطل" in query_lower or "حاسوب" in query_lower or "كمبيوتر" in query_lower:
                 st.markdown("بخصوص الصيانة: تأكد دائماً من سلامة توصيلات الطاقة، نظافة الرمات من الأكسدة، ومراقبة درجات حرارة المعالج باستمرار لتجنب التوقف المفاجئ.")
             else:
