@@ -8,14 +8,12 @@ st.set_page_config(
     layout="wide"
 )
 
-# تنسيقات التصميم الاحترافي مع ضبط اتجاه النصوص العربية (RTL)
+# تنسيقات التصميم الاحترافي (بدون إجبار اتجاه الصفحة العام لمنع التداخل)
 st.markdown("""
     <style>
     .stApp {
         background: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
         color: #f3f4f6;
-        direction: rtl;
-        text-align: right;
     }
     .stTabs [data-baseweb="tab-list"] {
         gap: 6px;
@@ -23,7 +21,6 @@ st.markdown("""
         padding: 8px;
         border-radius: 12px;
         border: 1px solid rgba(55, 65, 81, 0.5);
-        direction: rtl;
     }
     .stTabs [data-baseweb="tab"] {
         background-color: #1f2937;
@@ -78,15 +75,13 @@ st.markdown("""
     [data-testid="stSidebar"] {
         background-color: #0d1322;
         border-right: 1px solid #1f2937;
-        direction: rtl;
-        text-align: right;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# تنبيه تحت التجربة بخط مرتب وصحيح 100%
+# تنبيه تحت التجربة
 st.markdown("""
-    <div style="background-color: rgba(245, 158, 11, 0.15); border-right: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold; direction: rtl; text-align: right;">
+    <div style="background-color: rgba(245, 158, 11, 0.15); border-left: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
         ⚠️ تنبيه: هذه المنصة (PC TechAssist) لا تزال قيد التجربة والتطوير الميداني لإدارة الورش والتشخيص الهندسي.
     </div>
 """, unsafe_allow_html=True)
@@ -100,7 +95,7 @@ with st.sidebar:
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("📚 **المؤسسة:** إعدادية المثنى المهنية المسائية")
     st.markdown("---")
-    st.caption("الإصدار: 16.0 (Workshop Clean)")
+    st.caption("الإصدار: 17.0 (Stable Layout)")
 
 # التبويبات الشاملة
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
@@ -114,7 +109,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 
 # --- 1. لوحة القيادة ---
 with tab1:
-    st.title("⚡ منصة PC TechAssist")
+    st.title("⚡ PC TechAssist Platform")
     st.subheader("نظام إدارة ورش الصيانة والتشخيص الهندسي للعتاد")
     
     st.markdown("""
@@ -171,7 +166,7 @@ with tab2:
 
     if st.button("🚀 تنفيذ التشخيص الهندسي الفوري"):
         st.markdown(f"""
-            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; padding: 20px; border-radius: 12px; margin-top: 15px; direction: rtl; text-align: right;">
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; padding: 20px; border-radius: 12px; margin-top: 15px;">
             <h3 style="color: #34d399; margin-top: 0;">✅ نتائج الفحص الميداني لـ ({component} - العطل: {symptom}):</h3>
             """, unsafe_allow_html=True)
         
@@ -225,7 +220,7 @@ with tab5:
 
     components.html("""
     <!DOCTYPE html>
-    <html lang="ar" dir="rtl">
+    <html lang="ar">
     <head>
         <meta charset="UTF-8">
         <style>
@@ -235,8 +230,6 @@ with tab5:
                 font-family: Tahoma, sans-serif;
                 margin: 0;
                 padding: 5px;
-                direction: rtl;
-                text-align: right;
             }
             .form-group {
                 margin-bottom: 12px;
@@ -257,8 +250,6 @@ with tab5:
                 color: white;
                 box-sizing: border-box;
                 font-size: 14px;
-                direction: rtl;
-                text-align: right;
             }
             button {
                 background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -307,7 +298,7 @@ with tab5:
 with tab6:
     st.header("⚡ بروتوكولات الأمان والتفريغ الكهروستاتيكي (ESD)")
     st.markdown("""
-    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 20px; border-radius: 12px; color: #fca5a5; direction: rtl; text-align: right;">
+    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 20px; border-radius: 12px; color: #fca5a5;">
     <h3>⚠️ تحذيرات هندسية هامة لحماية العتاد:</h3>
     <ol>
         <li><b>التفريغ الأرضي:</b> المس جسماً معدنياً غير مفصول لتفريغ الشحنات الساكنة من جسمك قبل لمس البورد.</li>
