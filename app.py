@@ -8,74 +8,73 @@ st.set_page_config(
     layout="wide"
 )
 
-# تصميم ذوقي الخاص: أسود فحمي احترافي مع أخضر تيرمينال ورمادي معدني
+# تصميم وتغيير جذري للواجهة والألوان (Modern Cyber UI)
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #090d16 0%, #0e1726 100%);
-        color: #e5e7eb;
+        background: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+        color: #f3f4f6;
     }
     .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
-        background-color: rgba(15, 23, 42, 0.9);
+        gap: 12px;
+        background-color: rgba(17, 24, 39, 0.7);
         padding: 10px;
         border-radius: 12px;
-        border: 1px solid rgba(16, 185, 129, 0.2);
+        border: 1px solid rgba(55, 65, 81, 0.5);
     }
     .stTabs [data-baseweb="tab"] {
-        background-color: #1e293b;
+        background-color: #1f2937;
         border-radius: 8px;
         padding: 12px 24px;
-        color: #94a3b8;
+        color: #9ca3af;
         font-weight: 700;
         border: 1px solid transparent;
         transition: all 0.3s ease;
     }
     .stTabs [data-baseweb="tab"]:hover {
-        background-color: #334155;
+        background-color: #374151;
         color: #ffffff;
     }
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
         color: #ffffff !important;
-        border: 1px solid #34d399 !important;
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+        border: 1px solid #60a5fa !important;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
     }
     .cyber-card {
-        background: linear-gradient(145deg, #111827 0%, #0b0f19 100%);
-        border: 1px solid #10b981;
+        background: linear-gradient(145deg, #161e2e 0%, #0f172a 100%);
+        border: 1px solid #3b82f6;
         padding: 25px;
         border-radius: 16px;
         text-align: center;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         margin-bottom: 25px;
     }
     .stButton>button {
         background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: #ffffff;
-        font-weight: 800;
+        color: white;
+        font-weight: bold;
         border-radius: 10px;
         padding: 10px 24px;
         border: none;
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
-        background: linear-gradient(135deg, #34d399 0%, #047857 100%);
+        box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
     }
     [data-testid="stSidebar"] {
-        background-color: #070a12;
-        border-right: 1px solid #1e293b;
+        background-color: #0d1322;
+        border-right: 1px solid #1f2937;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# شريط التنبيه الاحترافي
+# شريط التنبيه التجريبي بتصميم أنيق
 st.markdown("""
-    <div style="background-color: rgba(16, 185, 129, 0.1); border-left: 5px solid #10b981; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #34d399; font-weight: bold;">
-        ⚡ النظام جاهز: النسخة الهندسية المخصصة لتشخيص صيانة عتاد الحواسيب.
+    <div style="background-color: rgba(245, 158, 11, 0.15); border-left: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
+        ⚠️ تنبيه: هذه النسخة تجريبية وقابلة للتطوير المستمر ضمن مشاريع صيانة العتاد التعليمية.
     </div>
 """, unsafe_allow_html=True)
 
@@ -87,7 +86,7 @@ with st.sidebar:
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 6.0 (Terminal Dark Pro)")
+    st.caption("الإصدار: 4.3 (Real Mail Secure)")
 
 # التعريف الصحيح للتبويبات الأربعة
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -104,13 +103,13 @@ with tab1:
     
     st.markdown("""
     <div class="cyber-card">
-        <h3 style="color: #94a3b8; margin-bottom: 10px;">🚀 تطوير وهندسة البرمجيات بواسطة</h3>
-        <h1 style="color: #34d399; text-shadow: 0 0 15px rgba(52, 211, 153, 0.4); margin: 10px 0;">Montazer Thamer Yousif</h1>
-        <p style="color: #93c5fd; font-size: 1.1em;"><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
+        <h3 style="color: #93c5fd; margin-bottom: 10px;">🚀 تطوير وهندسة البرمجيات بواسطة</h3>
+        <h1 style="color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.5); margin: 10px 0;">Montazer Thamer Yousif</h1>
+        <p style="color: #9ca3af; font-size: 1.1em;"><b>التخصص:</b> تجميع وصيانة الحاسوب | إعدادية المثنى المهنية المسائية</p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✨ المنصة جاهزة بالكامل بألوان التيرمينال الهندسية الأنيقة ومزودة بنظام التواصل الفعال!")
+    st.success("✨ المنصة جاهزة بالكامل ومحسنة لأداء عالي جداً للمشاركة في الهاكاثون!")
 
 # --- التبويب الثاني: التشخيص الموسع ---
 with tab2:
@@ -180,7 +179,7 @@ with tab3:
         <style>
             body {
                 background-color: transparent;
-                color: #e5e7eb;
+                color: #f3f4f6;
                 font-family: Tahoma, sans-serif;
                 margin: 0;
                 padding: 5px;
@@ -192,34 +191,30 @@ with tab3:
                 display: block;
                 margin-bottom: 5px;
                 font-weight: bold;
-                color: #34d399;
+                color: #f3f4f6;
                 font-size: 14px;
             }
             input, textarea {
                 width: 100%;
                 padding: 10px;
                 border-radius: 8px;
-                border: 1px solid #1e293b;
-                background: #111827;
+                border: 1px solid #374151;
+                background: #1f2937;
                 color: white;
                 box-sizing: border-box;
                 font-size: 14px;
             }
-            input:focus, textarea:focus {
-                border-color: #10b981;
-                outline: none;
-            }
             button {
                 background: linear-gradient(135deg, #10b981 0%, #059669 100%);
                 color: white;
-                font-weight: 900;
+                font-weight: bold;
                 padding: 12px 24px;
                 border: none;
                 border-radius: 10px;
                 cursor: pointer;
                 width: 100%;
                 font-size: 15px;
-                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
             }
             button:hover {
                 opacity: 0.95;
