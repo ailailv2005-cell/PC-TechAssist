@@ -79,13 +79,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Beta / Experimental Notice Banner
-st.markdown("""
-    <div style="background-color: rgba(245, 158, 11, 0.15); border-left: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
-        ⚠️ Notice: This platform (PC TechAssist) is currently in active beta testing for workshop management and hardware engineering diagnostics.
-    </div>
-""", unsafe_allow_html=True)
-
 # Sidebar
 with st.sidebar:
     st.markdown("### ⚙️ Control Panel")
@@ -307,4 +300,4 @@ with tab6:
     </ol>
     </div>
     """, unsafe_allow_html=True)
-        
+    
