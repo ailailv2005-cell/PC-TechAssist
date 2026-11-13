@@ -1,4 +1,6 @@
 import streamlit as st
+import qrcode
+from io import BytesIO
 
 # إعدادات الصفحة الأساسية للأداء السريع
 st.set_page_config(
@@ -85,12 +87,14 @@ with st.sidebar:
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("---")
-    st.caption("الإصدار: 3.1 (Extended Faults)")
+    st.caption("الإصدار: 3.4 (Direct Email Pro)")
 
 # التبويبات الرئيسية
-tab1, tab2, tab3 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "🚀 الواجهة الرئيسية", 
-    "🛠️ نظام التشخيص الذكي للقطع والأعطال", 
+    "🛠️ نظام التشخيص الذكي", 
+    "📱 باركود التطبيق",
+    "💡 المقترحات والإبلاغ",
     "⚡ بروتوكولات الأمان (ESD)"
 ])
 
@@ -107,9 +111,9 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✨ تم تحديث الأداة لتشمل بنكاً أوسع من الأعطال الهندسية الشائعة لتخدمك بشكل دقيق في الورشة!")
+    st.success("✨ المنصة جاهزة بالكامل ومزودة بنظام تواصل مباشر مع المطور لاستقبال المقترحات!")
 
-# --- التبويب الثاني: التشخيص الموسع بالأعطال الإضافية ---
+# --- التبويب الثاني: التشخيص الموسع ---
 with tab2:
     st.header("🛠️ محطة التشخيص الهندسي المباشر (الموسعة)")
     st.write("حدد القطعة المستهدفة والعطل الدقيق لاستخراج خطوات الصيانة الفورية:")
@@ -164,17 +168,66 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- التبويب الثالث: الأمان ESD ---
+# --- تبويب باركود التطبيق ---
 with tab3:
+    st.header("📱 باركود مشاركة التطبيق (QR Code)")
+    st.write("ضع رابط تطبيقك أدناه لتوليد باركود خاص به فوراً ليتمكن زملاؤك من مسحه والدخول إليه:")
+    
+    app_url = st.text_input("🔗 أدخل رابط تطبيقك هنا:", value="https://pc-techassist-xjghyqzoyhxmlk5cpgs8pf.streamlit.app")
+    
+    if app_url:
+        qr = qrcode.QRCode(version=1, box_size=10, border=4)
+        qr.add_data(app_url)
+        qr.make(fit=True)
+        img = qr.make_image(fill_color="black", back_color="white")
+        
+        buf = BytesIO()
+        img.save(buf, format="PNG")
+        byte_im = buf.getvalue()
+        
+        col_q1, col_q2 = st.columns([1, 2])
+        with col_q1:
+            st.image(byte_im, caption="مسح الكود للوصول السريع", width=250)
+        with col_q2:
+            st.success("✅ تم توليد الباركود بنجاح!")
+            st.write("• يمكنك حفظ صورة الباركود وعرضها في الورشة أو طباعتها على تقرير مشروعك.")
+            st.write("• أي شخص يوجه كاميرا هاتفه على هذا الكود سيفتح معه تطبيق **PC TechAssist** مباشرةً!")
+
+# --- تبويب المقترحات والإبلاغ المباشر (مرتبط بإيميلك) ---
+with tab4:
+    st.header("💡 الإبلاغ عن مشكلة أو إرسال مقترح تطويري")
+    st.write("اكتب مقترحك أو العطل الجديد الذي ترغب بإضافته، وسيتم إرساله مباشرة إلى بريد المطورين:")
+
+    contact_form = f"""
+    <form action="https://formsubmit.co/ailailv2005@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="رسالة جديدة من تطبيق PC TechAssist!">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <label style="color: #f3f4f6; font-weight: bold;">👤 اسمك الكريم:</label><br>
+        <input type="text" name="name" required style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white;"><br><br>
+        
+        <label style="color: #f3f4f6; font-weight: bold;">📧 بريدك الإلكتروني:</label><br>
+        <input type="email" name="email" required style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white;"><br><br>
+        
+        <label style="color: #f3f4f6; font-weight: bold;">✍️ تفاصيل المقترح أو المشكلة:</label><br>
+        <textarea name="message" required rows="4" style="width: 100%; padding: 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white;" placeholder="اكتب تفاصيل مقترحك هنا..."></textarea><br><br>
+        
+        <button type="submit" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 10px; cursor: pointer;">📤 إرسال إلى بريد المطور</button>
+    </form>
+    """
+    st.markdown(contact_form, unsafe_allow_html=True)
+
+# --- تبويب الأمان ESD ---
+with tab5:
     st.header("⚡ بروتوكولات الأمان والتفريغ الكهروستاتيكي (ESD)")
     st.markdown("""
     <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 20px; border-radius: 12px; color: #fca5a5;">
     <h3>⚠️ تحذيرات هندسية هامة لحماية العتاد:</h3>
     <ol>
         <li><b>التفريغ الأرضي:</b> المس جسماً معدنياً غير مفصول لتفريغ الشحنات الساكنة من جسمك قبل لمس البورد.</li>
-        <li><b>فصل الطاقة:</b> انزع كابل الكهرباء الرئيسي تماماً من الحائط قبل إجراء أي صيانة داخلية.</li>
+        <li><b>فصل الطاقة:</b> انزع كابل الكهرباء الرئيسي تماماً من الحائط قبل إجراء أي صيانة الداخلية.</li>
         <li><b>الأدوات المعزولة:</b> استخدم دائماً مفكات وأدوات معزولة وتجنب العمل على أسطح قماشية تولد شحنات.</li>
     </ol>
     </div>
     """, unsafe_allow_html=True)
-                
+            
