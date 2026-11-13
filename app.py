@@ -79,29 +79,28 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# شريط التنبيه الاحترافي
+# إعادة تنبيه "تحت التجربة / التطوير" بدلاً من التنبيه الأزرق المحذوف
 st.markdown("""
-    <div style="background-color: rgba(59, 130, 246, 0.15); border-left: 5px solid #3b82f6; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #93c5fd; font-weight: bold;">
-        🚀 منصة PC TechAssist Pro: نظام إدارة الورش والمساعد الذكي التفاعلي المتكامل.
+    <div style="background-color: rgba(245, 158, 11, 0.15); border-left: 5px solid #f59e0b; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
+        ⚠️ تنبيه: هذه المنصة (PC TechAssist Pro) لا تزال قيد التجربة والتطوير الميداني لإدارة الورش والتشخيص الهندسي.
     </div>
 """, unsafe_allow_html=True)
 
 # الشريط الجانبي
 with st.sidebar:
     st.markdown("### ⚙️ لوحة التحكم")
-    st.info("إدارة الورشة والمساعد الذكي التفاعلي.")
+    st.info("إدارة الورشة والتشخيص الهندسي.")
     st.markdown("---")
     st.markdown("👨‍💻 **المطور:** Montazer Thamer Yousif")
     st.markdown("🏫 **التخصص:** تجميع وصيانة الحاسوب")
     st.markdown("📚 **المؤسسة:** إعدادية المثنى المهنية المسائية")
     st.markdown("---")
-    st.caption("الإصدار: 14.0 (Stable Pro)")
+    st.caption("الإصدار: 15.0 (Workshop Pro)")
 
-# التبويبات الشاملة
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+# التبويبات الشاملة (بدون المساعد الذكي)
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🚀 لوحة القيادة", 
     "🛠️ التشخيص الهندسي", 
-    "🤖 المساعد الذكي", 
     "📋 أوامر الورشة", 
     "📦 قطع الغيار", 
     "💡 المقترحات",
@@ -187,44 +186,8 @@ with tab2:
         st.markdown("</div>", unsafe_allow_html=True)
         st.balloons()
 
-# --- 3. تبويب المساعد الذكي الشامل الآمن ---
+# --- 3. إدارة أوامر الورشة ---
 with tab3:
-    st.header("🤖 المساعد الذكي الشامل")
-    st.write("اسأل المساعد عن أي موضوع (صيانة حواسيب، نسيان كلمات المرور، برمجة، شراء لابتوب، سفر، أو استفسارات عامة) وسيجيبك بدقة فائقة:")
-    
-    user_prompt = st.text_area("اكتب سؤالك أو استفسارك هنا:", placeholder="مثال: ناسي كلمة السر للحاسوب، شنو أسوي؟ أو شنو تنصحني اشتري لابتوب؟", key="ai_input")
-    
-    if st.button("💬 إرسال السؤال إلى المساعد الذكي", key="ai_btn"):
-        if not user_prompt:
-            st.warning("⚠️ يرجى كتابة سؤالك أولاً.")
-        else:
-            st.markdown("""
-                <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; padding: 20px; border-radius: 12px; margin-top: 15px;">
-                <h3 style="color: #60a5fa; margin-top: 0;">🤖 رد المساعد الذكي:</h3>
-            """, unsafe_allow_html=True)
-            
-            # محرك ذكي آمن وخالي من الأخطاء يعتمد على التحقق المباشر
-            query = user_prompt.lower()
-            
-            if "كلمة السر" in query or "كلمه السر" in query or "باسورد" in query or "password" in query or "ناسي" in query or "نسيت" in query:
-                st.markdown("🔒 **حل مشكلة نسيان كلمة المرور:**\n1. **لنظام ويندوز 10/11:** استخدام حساب Microsoft المرتبط لإعادة التعيين عبر الإنترنت من شاشة تسجيل الدخول.\n2. **أدوات الطوارئ:** الاعتماد على فلاشة صيانة خارجية (مثل Hiren's BootCD) لفك وتصفير كلمة سر الـ Windows.\n3. **إعادة الضبط:** في حال عدم نجاح الطرق السابقة، يُفضل إجراء فورمات نظيف مع الحفاظ على البيانات غير المتأثرة.")
-            elif "لابتوب" in query or "اشتري" in query or "شراء" in query or "حاسوب محمول" in query:
-                st.markdown("💻 **نصيحة اختيار اللابتوب المناسب:**\n1. **للتصميم والبرمجة:** أنصحك بمعالج قوي (Intel Core i7 أو AMD Ryzen 7) مع ذاكرة عشوائية 16GB RAM وقرص SSD سريع.\n2. **للأعمال الدراسية والمكتبية:** كافي جداً معالج Core i5 مع ذاكرة 8GB وتخزين SSD لتجربة سلسة وسريعة.")
-            elif "سفر" in query or "اسافر" in query or "دولة" in query or "هجرة" in query:
-                st.markdown("✈️ **بخصوص الاستفسار عن السفر:**\nاختيار الوجهة يعتمد على هدفك (دراسة جامعية، سياحة، أو تطوير مهني). إذا كنت تبحث عن تخصصات تقنية، فهناك برامج تدريب مهني متقدمة (Ausbildung) في أوروبا في مجال تكنولوجيا المعلومات وصيانة الأنظمة.")
-            elif "برمجة" in query or "بايثون" in query or "python" in query or "code" in query or "مبرمج" in query:
-                st.markdown("🐍 **عالم البرمجة وتطوير الويب:**\nلغة Python تعتبر الخيار الأول والأروع لتطوير تطبيقات الويب، الذكاء الاصطناعي، وتحليل البيانات بفضل سهولة بناء الكود وقوة مكتباتها.")
-            elif "صيانة" in query or "عطل" in query or "مشكلة" in query or "توقف" in query:
-                st.markdown("🛠️ **دليل الصيانة الهندسي:**\n1. افحص مصادر الطاقة وتأكد من سلامة توصيلات الـ PSU.\n2. نظف شرائح الذاكرة (RAM) من الأكسدة وتأكد من ثباتها في الشقوق.\n3. راقب درجات حرارة المعالج باستمرار لتجنب الإغلاق التلقائي.")
-            elif "مرحبا" in query or "السلام" in query or "أهلاً" in query or "هلا" in query:
-                st.markdown("👋 أهلاً بك يا منتظر! أنا مساعدك الذكي المتكامل وجاهز تماماً للإجابة على أي استفسار تقني أو عام.")
-            else:
-                st.markdown(f"لقد استلمت استفسارك بدقة: **\"{user_prompt}\"**.<br>بصفتي مساعدك الذكي الشامل، أنصحك بتقسيم المشكلة إلى خطوات منطقية صغيرة وتطبيق الحل الهندسي المناسب لها. هل تحتاج إلى تفاصيل أو خطوات إضافية حول هذا الموضوع؟", unsafe_allow_html=True)
-            
-            st.markdown("</div>", unsafe_allow_html=True)
-
-# --- 4. إدارة أوامر الورشة ---
-with tab4:
     st.header("📋 سجل أوامر العمل والصيانة (Workshop Tickets)")
     st.write("إدارة الأجهزة المستلمة وحالات الصيانة الحالية في الورشة:")
     
@@ -236,8 +199,8 @@ with tab4:
     | **#WRK-103** | مصطفى حسن | Dell OptiPlex | إعادة تشغيل عشوائي | ✅ تم الإصلاح | منتظر ثامر |
     """, unsafe_allow_html=True)
 
-# --- 5. مخزون قطع الغيار ---
-with tab5:
+# --- 4. مخزون قطع الغيار ---
+with tab4:
     st.header("📦 إدارة مخزون قطع الغيار (Spare Parts Inventory)")
     st.write("متابعة توفر القطع والكميات المتاحة في الورشة:")
     
@@ -250,8 +213,8 @@ with tab5:
     | **بطارية CMOS CR2032** | صيانة عامة | 25 | 10 | 🟢 متوفر |
     """, unsafe_allow_html=True)
 
-# --- 6. الإرسال الفعلي الحقيقي للمقترحات ---
-with tab6:
+# --- 5. الإرسال الفعلي الحقيقي للمقترحات ---
+with tab5:
     st.header("💡 الإبلاغ عن مشكلة أو إرسال مقترح تطويري")
     st.write("اكتب مقترحك أو العطل الجديد، وسيتم إرساله مباشرة إلى فريق التطوير:")
 
@@ -331,8 +294,8 @@ with tab6:
     </html>
     """, height=340)
 
-# --- 7. الأمان ESD ---
-with tab7:
+# --- 6. الأمان ESD ---
+with tab6:
     st.header("⚡ بروتوكولات الأمان والتفريغ الكهروستاتيكي (ESD)")
     st.markdown("""
     <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 20px; border-radius: 12px; color: #fca5a5;">
